@@ -86,7 +86,15 @@
                 centerPadding: '50px', //센터모드일때 padding
                 
                 zIndex: 0,
-                responsive: [{}]
+                responsive: [{
+                    breakpoint: ,
+                    settings: {
+                    }
+                },{
+                    breakpoint: ,
+                    settings: {
+                    }
+                }]
                 
                 
                 
