@@ -1,11 +1,29 @@
 @charset "UTF-8";
 
-/* header */
-#header{display:block;position:absolute;left:0;top:0;width:100%;}
+/* font */
+@font-face{
+    font-family:'notoSans';
+    font-weight:200;
+    src:url('../font/NotoSansKR/NotoSansKR-Thin.woff2') format('woff2');
+}
+@font-face{
+    font-family:'notoSans';
+    font-weight:400;
+    src:url('../font/NotoSansKR/NotoSansKR-Regular.woff2') format('woff2');
+}
+@font-face{
+    font-family:'notoSans';
+    font-weight:600;
+    src:url('../font/NotoSansKR/NotoSansKR-Bold.woff2') format('woff2');
+}
 
 /* common */
+body{font-family:'','Malgun Gothic','맑은 고딕',Dotum,'돋움',Helvetica,AppleSDGothicNeo,sans-serif;}
 .container{display:block;width:100%;}
 .container main{display:block;width:100%;padding:0 calc(50% - 800px);}
+
+/* header */
+#header{display:block;position:absolute;left:0;top:0;width:100%;}
 
 /* copy buttons */
 .button_wrap{display:block;width:100%;font-size:0;line-height:0;text-align:center;}
