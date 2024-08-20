@@ -14,14 +14,14 @@
     <meta property="og:title" content="페이지 제목 표시">
     <meta property="og:description" content="페이지 설명 표시">
     <meta property="og:type" content="website">
-    <link rel="stylesheet" href="/css/reset.css"/>
-    <link rel="stylesheet" href="/template/template.css"/>
-    <link rel="stylesheet" href="/template/layout_template.css"/>
-    <script src="/jquery/jquery-1.12.4.HS-20200709.min.js"></script>
-    <script src="/jquery/jquery.screen.js"></script>
-    <script src="/slick/slick-version/slick.min.custom.1.8.0.12.js"></script>
-    <script src="/slick/common-files/slick.extensions.min.js"></script>
-    <script src="/template/template.js"></script>
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <link rel="stylesheet" href="./template.css"/>
+    <link rel="stylesheet" href="./layout_template.css"/>
+    <script src="../jquery/jquery-1.12.4.HS-20200709.min.js"></script>
+    <script src="../jquery/jquery.screen.js"></script>
+    <script src="../slick/slick-version/slick.min.custom.1.8.0.12.js"></script>
+    <script src="../slick/common-files/slick.extensions.min.js"></script>
+    <script src="./template.js"></script>
     <title>kkamang 템플릿</title>
 </head>
 <body>
@@ -53,6 +53,7 @@
             </div>
             <div class="tab_wrap">
                 <div class="tab_menu type1" data-row="5">
+                    <button type="button" title="탭메뉴 열기" class="tab_open"><span><em>탭버튼 01</em></span></button>
                     <ul class="tab_list">
                         <li class="tab_item"><button type="button" class="btn"><span><em>헤더, 푸터</em></span></button></li>
                         <li class="tab_item active"><button type="button" title="선택됨" class="btn"><span><em>탭메뉴</em></span></button></li>
@@ -74,6 +75,7 @@
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 <div class="tab_wrap">
     <div class="tab_menu">
+        <button type="button" title="탭메뉴 열기" class="tab_open"><span><em></em></span></button>
         <ul class="tab_list">
             <li class="tab_item active"><button type="button" title="선택됨" class="btn"><span><em></em></span></button></li>
             <li class="tab_item"><button type="button" class="btn"><span><em></em></span></button></li>
@@ -108,7 +110,7 @@
                             <div class="copy_box">
                                 <button class="copy javascript"><span><em>javascript common</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-// tab menu
+// tab menu - S
 var $tabWrap = $('.tab_wrap');
 $tabWrap.each(function(){
     var $this = $(this),
@@ -122,14 +124,16 @@ $tabWrap.each(function(){
         $tabContentItem.removeClass('active').eq($tabIndex).addClass('active');
     });
 });
+// tab menu - E
 </textarea>
                             </div>
                         </div>
 
                         <h3>탭메뉴 type1</h3>
-                        <p>data-row 속성으로 한줄 아이템 개수 조절</p>
+                        <p>data-row 속성으로 한줄에 들어오는 아이템 개수 조절</p>
                         <div class="tab_wrap">
                             <div class="tab_menu type1" data-row="5">
+                                <button type="button" title="탭메뉴 열기" class="tab_open"><span><em>탭버튼 01</em></span></button>
                                 <ul class="tab_list">
                                     <li class="tab_item active"><button type="button" title="선택됨" class="btn"><span><em>탭버튼 01</em></span></button></li>
                                     <li class="tab_item"><button type="button" class="btn"><span><em>탭버튼 02</em></span></button></li>
@@ -172,6 +176,7 @@ $tabWrap.each(function(){
                         <h3>탭메뉴 type2</h3>
                         <div class="tab_wrap">
                             <div class="tab_menu type2">
+                                <button type="button" title="탭메뉴 열기" class="tab_open"><span><em>탭버튼 01</em></span></button>
                                 <ul class="tab_list">
                                     <li class="tab_item active"><button class="btn"><span><em>탭버튼 01</em></span></button></li>
                                     <li class="tab_item"><button class="btn"><span><em>탭버튼 02</em></span></button></li>
@@ -215,7 +220,7 @@ $tabWrap.each(function(){
                         <p>반응형에서 탭버튼 셀렉트로 바뀜</p>
                         <div class="tab_wrap">
                             <div class="tab_menu type1 responsive" data-row="5">
-                                <div class="tab_open"><button class="btn"><span><em>탭버튼 01</em></span></button></div>
+                                <button type="button" title="탭메뉴 열기" class="tab_open"><span><em>탭버튼 01</em></span></button>
                                 <ul class="tab_list">
                                     <li class="tab_item active"><button class="btn"><span><em>탭버튼 01</em></span></button></li>
                                     <li class="tab_item"><button class="btn"><span><em>탭버튼 02</em></span></button></li>

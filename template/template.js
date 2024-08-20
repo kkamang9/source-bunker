@@ -10,7 +10,7 @@ $(function(){
         });
     });
     
-    // tab menu
+    // tab menu - S
     var $tabWrap = $('.tab_wrap');
     $tabWrap.each(function(){
         var $this = $(this),
@@ -24,5 +24,6 @@ $(function(){
             $tabContentItem.removeClass('active').eq($tabIndex).addClass('active');
         });
     });
+    // tab menu - E
     
 });

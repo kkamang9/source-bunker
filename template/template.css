@@ -4,11 +4,11 @@
 /* tab menu common */
 .tab_wrap{display:block;width:100%;}
 .tab_wrap .tab_menu{display:block;width:100%;}
+.tab_wrap .tab_menu .tab_open{display:none;}
 .tab_wrap .tab_menu .tab_list{display:block;width:100%;font-size:0;line-height:0;box-sizing:border-box;}
 .tab_wrap .tab_menu .tab_list .tab_item{display:inline-block;position:relative;z-index:0;vertical-align:top;}
 .tab_wrap .tab_menu .tab_list .tab_item.active{z-index:1;}
 .tab_wrap .tab_menu .tab_list .tab_item .btn{display:block;width:100%;height:100%;text-align:center;box-sizing:border-box;}
-.tab_wrap .tab_menu .tab_list .tab_item.active .btn{background-color:#eee;}
 .tab_wrap .tab_menu .tab_list .tab_item .btn span{display:block;width:100%;}
 .tab_wrap .tab_menu .tab_list .tab_item a.btn span{position:relative;top:50%;transform:translateY(-50%);}
 .tab_wrap .tab_menu .tab_list .tab_item .btn span em{display:inline;}
@@ -21,6 +21,7 @@
 .tab_wrap .tab_menu.type1 .tab_list{padding-top:1px;}
 .tab_wrap .tab_menu.type1 .tab_list .tab_item{height:50px;margin-top:-1px;margin-left:-1px;}
 .tab_wrap .tab_menu.type1 .tab_list .tab_item .btn{padding:0 20px;border-radius:0;border:solid 1px #000;}
+.tab_wrap .tab_menu.type1 .tab_list .tab_item.active .btn{background-color:#eee;}
 .tab_wrap .tab_menu.type1 .tab_list .tab_item .btn span em{font-weight:400;font-size:20px;line-height:24px;color:#000;word-break:keep-all;}
 /* tab menu type1 [data-row="1"] */
 .tab_wrap .tab_menu.type1[data-row="1"] .tab_list .tab_item{width:calc((100% / 1) + 1px);}
@@ -40,3 +41,9 @@
 /* tab menu type1 [data-row="6"] */
 .tab_wrap .tab_menu.type1[data-row="6"] .tab_list .tab_item{width:calc((100% / 6) + 1px);}
 .tab_wrap .tab_menu.type1[data-row="6"] .tab_list .tab_item:nth-child(6n + 1){width:calc(100% / 6);margin-left:0;}
+.tab_wrap .tab_menu.type1 .tab_list{padding-top:1px;}
+/* tab menu type2 */
+.tab_wrap .tab_menu.type2 .tab_list .tab_item{height:50px;}
+.tab_wrap .tab_menu.type2 .tab_list .tab_item .btn{padding:0 20px;}
+.tab_wrap .tab_menu.type2 .tab_list .tab_item .btn span em{font-weight:400;font-size:20px;line-height:24px;color:#000;word-break:keep-all;}
+.tab_wrap .tab_menu.type2 .tab_list .tab_item.active .btn span em{color:#09f;}
