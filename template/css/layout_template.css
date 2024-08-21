@@ -4,23 +4,29 @@
 @font-face{
     font-family:'notoSans';
     font-weight:200;
-    src:url('../font/NotoSansKR/NotoSansKR-Thin.woff2') format('woff2');
+    src:url('../../font/NotoSansKR/NotoSansKR-Thin.woff2') format('woff2');
 }
 @font-face{
     font-family:'notoSans';
     font-weight:400;
-    src:url('../font/NotoSansKR/NotoSansKR-Regular.woff2') format('woff2');
+    src:url('../../font/NotoSansKR/NotoSansKR-Regular.woff2') format('woff2');
 }
 @font-face{
     font-family:'notoSans';
     font-weight:600;
-    src:url('../font/NotoSansKR/NotoSansKR-Bold.woff2') format('woff2');
+    src:url('../../font/NotoSansKR/NotoSansKR-Bold.woff2') format('woff2');
+}
+@font-face{
+    font-family:'notoSans';
+    font-weight:800;
+    src:url('../../font/NotoSansKR/NotoSansKR-Black.woff2') format('woff2');
 }
 
 /* common */
-body{font-family:'','Malgun Gothic','맑은 고딕',Dotum,'돋움',Helvetica,AppleSDGothicNeo,sans-serif;}
+body{font-family:'notoSans','Malgun Gothic','맑은 고딕',Dotum,'돋움',Helvetica,AppleSDGothicNeo,sans-serif;letter-spacing:-0.03em;}
+body::-webkit-scrollbar{display:none;}
 .container{display:block;width:100%;}
-.container main{display:block;width:100%;padding:0 calc(50% - 800px);}
+.container .section_inner{display:block;width:100%;padding:0 calc(50% - 700px);}
 
 /* header */
 #header{display:block;position:absolute;left:0;top:0;width:100%;}
@@ -48,3 +54,7 @@ body{font-family:'','Malgun Gothic','맑은 고딕',Dotum,'돋움',Helvetica,App
 .copy_box .copy span{display:block;position:relative;}
 .copy_box .copy span em{font-weight:600;font-size:18px;line-height:20px;color:#fff;mix-blend-mode:difference;}
 .copy_box .copy + .copy_text{display:block;opacity:0;position:absolute;left:0;top:0;width:0;height:0;margin:0;padding:0;font-size:0;line-height:0;background-color:transparent;color:transparent;box-sizing:border-box;}
+
+/* visual */
+.template_visual{display:block;width:100%;height:400px;background-image:url(../img/template_visual01.jpg);background-position:center center;background-size:cover;background-repeat:no-repeat;}
+.template_visual .title{display:block;position:relative;top:50%;font-weight:800;font-size:40px;line-height:46px;color:#fff;text-align:center;transform:translateY(-50%);text-shadow:0 0 40px rgba(0, 0, 0, 0.2)}

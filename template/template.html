@@ -15,35 +15,16 @@
     <meta property="og:description" content="페이지 설명 표시">
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="../css/reset.css"/>
-    <link rel="stylesheet" href="./template.css"/>
-    <link rel="stylesheet" href="./layout_template.css"/>
+    <link rel="stylesheet" href="./css/template.css"/>
+    <link rel="stylesheet" href="./css/layout_template.css"/>
     <script src="../jquery/jquery-1.12.4.HS-20200709.min.js"></script>
     <script src="../jquery/jquery.screen.js"></script>
     <script src="../slick/slick-version/slick.min.custom.1.8.0.12.js"></script>
     <script src="../slick/common-files/slick.extensions.min.js"></script>
-    <script src="./template.js"></script>
+    <script src="./js/template.js"></script>
     <title>kkamang 템플릿</title>
 </head>
 <body>
-
-<div class="button_wrap">
-    <div class="copy_box">
-        <button class="copy html"><span><em>html copy</em></span></button>
-        <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-        </textarea>
-    </div>
-    <div class="copy_box">
-        <button class="copy css"><span><em>css copy</em></span></button>
-        <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-        </textarea>
-    </div>
-    <div class="copy_box">
-        <button class="copy javascript"><span><em>javascript copy</em></span></button>
-        <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-        </textarea>
-    </div>
-</div>
-
 <div id="wrapper">
     <header id="header"></header>
     <div class="container">
@@ -51,27 +32,28 @@
             <div class="template_visual">
                 <div class="title">personal template layout</div>
             </div>
-            <div class="tab_wrap">
-                <div class="tab_menu type1" data-row="5">
-                    <button type="button" title="탭메뉴 열기" class="tab_open"><span><em>탭버튼 01</em></span></button>
-                    <ul class="tab_list">
-                        <li class="tab_item"><button type="button" class="btn"><span><em>헤더, 푸터</em></span></button></li>
-                        <li class="tab_item active"><button type="button" title="선택됨" class="btn"><span><em>탭메뉴</em></span></button></li>
-                        <li class="tab_item"><button type="button" class="btn"><span><em>슬릭</em></span></button></li>
-                        <li class="tab_item"><button type="button" class="btn"><span><em>링크 리스트</em></span></button></li>
-                        <li class="tab_item"><button type="button" class="btn"><span><em>공지사항</em></span></button></li>
-                    </ul>
-                </div>
-                <div class="tab_contents">
-                    <div class="content_item">
-                        <h3>헤더</h3>
-                        <h3>푸터</h3>
+            <div class="section_inner">
+                <div class="tab_wrap">
+                    <div class="tab_menu type1" data-row="5">
+                        <button type="button" title="탭메뉴 열기" class="tab_open"><span><em>탭버튼 01</em></span></button>
+                        <ul class="tab_list">
+                            <li class="tab_item"><button type="button" class="btn"><span><em>헤더, 푸터</em></span></button></li>
+                            <li class="tab_item active"><button type="button" title="선택됨" class="btn"><span><em>탭메뉴</em></span></button></li>
+                            <li class="tab_item"><button type="button" class="btn"><span><em>슬릭</em></span></button></li>
+                            <li class="tab_item"><button type="button" class="btn"><span><em>링크 리스트</em></span></button></li>
+                            <li class="tab_item"><button type="button" class="btn"><span><em>공지사항</em></span></button></li>
+                        </ul>
                     </div>
-                    <div class="content_item active">
-                        <h3>탭메뉴 기본 코드</h3>
-                        <div class="button_wrap">
-                            <div class="copy_box">
-                                <button class="copy html"><span><em>html common</em></span></button>
+                    <div class="tab_contents">
+                        <div class="content_item">
+                            <h3>헤더</h3>
+                            <h3>푸터</h3>
+                        </div>
+                        <div class="content_item active">
+                            <h3>탭메뉴 기본 코드</h3>
+                            <div class="button_wrap">
+                                <div class="copy_box">
+                                    <button class="copy html"><span><em>html common</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 <div class="tab_wrap">
     <div class="tab_menu">
@@ -87,9 +69,9 @@
     </div>
 </div>
 </textarea>
-                            </div>
-                            <div class="copy_box">
-                                <button class="copy css"><span><em>css common</em></span></button>
+                                </div>
+                                <div class="copy_box">
+                                    <button class="copy css"><span><em>css common</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 /* tab menu common */
 .tab_wrap{display:block;width:100%;}
@@ -106,9 +88,9 @@
 .tab_wrap .tab_contents .content_item{display:none;width:100%;padding-top:30px;}
 .tab_wrap .tab_contents .content_item.active{display:block;}
 </textarea>
-                            </div>
-                            <div class="copy_box">
-                                <button class="copy javascript"><span><em>javascript common</em></span></button>
+                                </div>
+                                <div class="copy_box">
+                                    <button class="copy javascript"><span><em>javascript common</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 // tab menu - S
 var $tabWrap = $('.tab_wrap');
@@ -126,27 +108,27 @@ $tabWrap.each(function(){
 });
 // tab menu - E
 </textarea>
+                                </div>
                             </div>
-                        </div>
 
-                        <h3>탭메뉴 type1</h3>
-                        <p>data-row 속성으로 한줄에 들어오는 아이템 개수 조절</p>
-                        <div class="tab_wrap">
-                            <div class="tab_menu type1" data-row="5">
-                                <button type="button" title="탭메뉴 열기" class="tab_open"><span><em>탭버튼 01</em></span></button>
-                                <ul class="tab_list">
-                                    <li class="tab_item active"><button type="button" title="선택됨" class="btn"><span><em>탭버튼 01</em></span></button></li>
-                                    <li class="tab_item"><button type="button" class="btn"><span><em>탭버튼 02</em></span></button></li>
-                                </ul>
+                            <h3>탭메뉴 type1</h3>
+                            <p>data-row 속성으로 한줄에 들어오는 아이템 개수 조절</p>
+                            <div class="tab_wrap">
+                                <div class="tab_menu type1" data-row="5">
+                                    <button type="button" title="탭메뉴 열기" class="tab_open"><span><em>탭버튼 01</em></span></button>
+                                    <ul class="tab_list">
+                                        <li class="tab_item active"><button type="button" title="선택됨" class="btn"><span><em>탭버튼 01</em></span></button></li>
+                                        <li class="tab_item"><button type="button" class="btn"><span><em>탭버튼 02</em></span></button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab_contents">
+                                    <div class="content_item active">탭내용 01</div>
+                                    <div class="content_item">탭내용 02</div>
+                                </div>
                             </div>
-                            <div class="tab_contents">
-                                <div class="content_item active">탭내용 01</div>
-                                <div class="content_item">탭내용 02</div>
-                            </div>
-                        </div>
-                        <div class="button_wrap">
-                            <div class="copy_box">
-                                <button class="copy html"><span><em>html copy</em></span></button>
+                            <div class="button_wrap">
+                                <div class="copy_box">
+                                    <button class="copy html"><span><em>html copy</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 <div class="tab_wrap">
     <div class="tab_menu type1" data-row="5">
@@ -161,35 +143,35 @@ $tabWrap.each(function(){
     </div>
 </div>
 </textarea>
-                            </div>
-                            <div class="copy_box">
-                                <button class="copy css"><span><em>css copy</em></span></button>
+                                </div>
+                                <div class="copy_box">
+                                    <button class="copy css"><span><em>css copy</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
-                            </div>
-                            <div class="copy_box">
-                                <button class="copy javascript"><span><em>javascript copy</em></span></button>
+                                </div>
+                                <div class="copy_box">
+                                    <button class="copy javascript"><span><em>javascript copy</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
+                                </div>
                             </div>
-                        </div>
-                        <h3>탭메뉴 type2</h3>
-                        <div class="tab_wrap">
-                            <div class="tab_menu type2">
-                                <button type="button" title="탭메뉴 열기" class="tab_open"><span><em>탭버튼 01</em></span></button>
-                                <ul class="tab_list">
-                                    <li class="tab_item active"><button class="btn"><span><em>탭버튼 01</em></span></button></li>
-                                    <li class="tab_item"><button class="btn"><span><em>탭버튼 02</em></span></button></li>
-                                </ul>
+                            <h3>탭메뉴 type2</h3>
+                            <div class="tab_wrap">
+                                <div class="tab_menu type2">
+                                    <button type="button" title="탭메뉴 열기" class="tab_open"><span><em>탭버튼 01</em></span></button>
+                                    <ul class="tab_list">
+                                        <li class="tab_item active"><button class="btn"><span><em>탭버튼 01</em></span></button></li>
+                                        <li class="tab_item"><button class="btn"><span><em>탭버튼 02</em></span></button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab_contents">
+                                    <div class="content_item active">탭내용 01</div>
+                                    <div class="content_item">탭내용 02</div>
+                                </div>
                             </div>
-                            <div class="tab_contents">
-                                <div class="content_item active">탭내용 01</div>
-                                <div class="content_item">탭내용 02</div>
-                            </div>
-                        </div>
-                        <div class="button_wrap">
-                            <div class="copy_box">
-                                <button class="copy html"><span><em>html copy</em></span></button>
+                            <div class="button_wrap">
+                                <div class="copy_box">
+                                    <button class="copy html"><span><em>html copy</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 <div class="tab_wrap">
     <div class="tab_menu type2">
@@ -204,36 +186,36 @@ $tabWrap.each(function(){
     </div>
 </div>
 </textarea>
-                            </div>
-                            <div class="copy_box">
-                                <button class="copy css"><span><em>css copy</em></span></button>
+                                </div>
+                                <div class="copy_box">
+                                    <button class="copy css"><span><em>css copy</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
-                            </div>
-                            <div class="copy_box">
-                                <button class="copy javascript"><span><em>javascript copy</em></span></button>
+                                </div>
+                                <div class="copy_box">
+                                    <button class="copy javascript"><span><em>javascript copy</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
+                                </div>
                             </div>
-                        </div>
-                        <h3>탭메뉴 responsive</h3>
-                        <p>반응형에서 탭버튼 셀렉트로 바뀜</p>
-                        <div class="tab_wrap">
-                            <div class="tab_menu type1 responsive" data-row="5">
-                                <button type="button" title="탭메뉴 열기" class="tab_open"><span><em>탭버튼 01</em></span></button>
-                                <ul class="tab_list">
-                                    <li class="tab_item active"><button class="btn"><span><em>탭버튼 01</em></span></button></li>
-                                    <li class="tab_item"><button class="btn"><span><em>탭버튼 02</em></span></button></li>
-                                </ul>
+                            <h3>탭메뉴 responsive</h3>
+                            <p>반응형에서 탭버튼 셀렉트로 바뀜</p>
+                            <div class="tab_wrap">
+                                <div class="tab_menu type1 responsive" data-row="5">
+                                    <button type="button" title="탭메뉴 열기" class="tab_open"><span><em>탭버튼 01</em></span></button>
+                                    <ul class="tab_list">
+                                        <li class="tab_item active"><button class="btn"><span><em>탭버튼 01</em></span></button></li>
+                                        <li class="tab_item"><button class="btn"><span><em>탭버튼 02</em></span></button></li>
+                                    </ul>
+                                </div>
+                                <div class="tab_contents">
+                                    <div class="content_item active">탭내용 01</div>
+                                    <div class="content_item">탭내용 02</div>
+                                </div>
                             </div>
-                            <div class="tab_contents">
-                                <div class="content_item active">탭내용 01</div>
-                                <div class="content_item">탭내용 02</div>
-                            </div>
-                        </div>
-                        <div class="button_wrap">
-                            <div class="copy_box">
-                                <button class="copy html"><span><em>html copy</em></span></button>
+                            <div class="button_wrap">
+                                <div class="copy_box">
+                                    <button class="copy html"><span><em>html copy</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 <div class="tab_wrap">
     <div class="tab_menu type1 responsive" data-row="5">
@@ -249,99 +231,100 @@ $tabWrap.each(function(){
     </div>
 </div>
 </textarea>
-                            </div>
-                            <div class="copy_box">
-                                <button class="copy css"><span><em>css copy</em></span></button>
+                                </div>
+                                <div class="copy_box">
+                                    <button class="copy css"><span><em>css copy</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
-                            </div>
-                            <div class="copy_box">
-                                <button class="copy javascript"><span><em>javascript copy</em></span></button>
+                                </div>
+                                <div class="copy_box">
+                                    <button class="copy javascript"><span><em>javascript copy</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="content_item">
-                        <h3>슬릭슬라이드 type_full</h3>
-                        <div class="slide_wrap type_full">
-                            <div class="slide_list">
-                                <div class="slide_item">
-                                    <a href="" class="link">
-                                        <span class="img_box">
-                                            <img src="" alt="" class="skip_img" />
-                                            <i style="background-image:url();" class="real_img"></i>
-                                        </span>
-                                        <span class="text_box">
-                                            <span class="title"></span>
-                                            <span class="desc"></span>
-                                        </span>
-                                    </a>
+                        <div class="content_item">
+                            <h3>슬릭슬라이드 type_full</h3>
+                            <div class="slide_wrap type_full">
+                                <div class="slide_list">
+                                    <div class="slide_item">
+                                        <a href="" class="link">
+                                            <span class="img_box">
+                                                <img src="" alt="" class="skip_img" />
+                                                <i style="background-image:url();" class="real_img"></i>
+                                            </span>
+                                            <span class="text_box">
+                                                <span class="title"></span>
+                                                <span class="desc"></span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="button_wrap">
+                                    <div class="button_box"><button type="button" class="btn prev"><span><em>이전 버튼</em></span></button></div>
+                                    <div class="button_box"><button type="button" class="btn next"><span><em>다음 버튼</em></span></button></div>
                                 </div>
                             </div>
                             <div class="button_wrap">
-                                <div class="button_box"><button type="button" class="btn prev"><span><em>이전 버튼</em></span></button></div>
-                                <div class="button_box"><button type="button" class="btn next"><span><em>다음 버튼</em></span></button></div>
-                            </div>
-                        </div>
-                        <div class="button_wrap">
-                            <div class="copy_box">
-                                <button class="copy html"><span><em>html copy</em></span></button>
+                                <div class="copy_box">
+                                    <button class="copy html"><span><em>html copy</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
-                            </div>
-                            <div class="copy_box">
-                                <button class="copy css"><span><em>css copy</em></span></button>
+                                </div>
+                                <div class="copy_box">
+                                    <button class="copy css"><span><em>css copy</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
-                            </div>
-                            <div class="copy_box">
-                                <button class="copy javascript"><span><em>javascript copy</em></span></button>
+                                </div>
+                                <div class="copy_box">
+                                    <button class="copy javascript"><span><em>javascript copy</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
+                                </div>
                             </div>
-                        </div>
-                        <h3>슬릭슬라이드 type_list</h3>
-                        <div class="slide_wrap type_list">
-                            <div class="slide_list">
-                                <div class="slide_item">
-                                    <a href="" class="link">
-                                        <span class="img_box">
-                                            <img src="" alt="" class="skip_img" />
-                                            <i style="background-image:url();" class="real_img"></i>
-                                        </span>
-                                        <span class="text_box">
-                                            <span class="title"></span>
-                                            <span class="desc"></span>
-                                        </span>
-                                    </a>
+                            <h3>슬릭슬라이드 type_list</h3>
+                            <div class="slide_wrap type_list">
+                                <div class="slide_list">
+                                    <div class="slide_item">
+                                        <a href="" class="link">
+                                            <span class="img_box">
+                                                <img src="" alt="" class="skip_img" />
+                                                <i style="background-image:url();" class="real_img"></i>
+                                            </span>
+                                            <span class="text_box">
+                                                <span class="title"></span>
+                                                <span class="desc"></span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="button_wrap">
+                                    <div class="button_box"><button type="button" class="btn prev"><span><em>이전 버튼</em></span></button></div>
+                                    <div class="button_box"><button type="button" class="btn next"><span><em>다음 버튼</em></span></button></div>
                                 </div>
                             </div>
                             <div class="button_wrap">
-                                <div class="button_box"><button type="button" class="btn prev"><span><em>이전 버튼</em></span></button></div>
-                                <div class="button_box"><button type="button" class="btn next"><span><em>다음 버튼</em></span></button></div>
+                                <div class="copy_box">
+                                    <button class="copy html"><span><em>html copy</em></span></button>
+<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+</textarea>
+                                </div>
+                                <div class="copy_box">
+                                    <button class="copy css"><span><em>css copy</em></span></button>
+<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+</textarea>
+                                </div>
+                                <div class="copy_box">
+                                    <button class="copy javascript"><span><em>javascript copy</em></span></button>
+<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+</textarea>
+                                </div>
                             </div>
                         </div>
-                        <div class="button_wrap">
-                            <div class="copy_box">
-                                <button class="copy html"><span><em>html copy</em></span></button>
-<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-</textarea>
-                            </div>
-                            <div class="copy_box">
-                                <button class="copy css"><span><em>css copy</em></span></button>
-<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-</textarea>
-                            </div>
-                            <div class="copy_box">
-                                <button class="copy javascript"><span><em>javascript copy</em></span></button>
-<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-</textarea>
-                            </div>
-                        </div>
+                        <div class="content_item"></div>
+                        <div class="content_item"></div>
                     </div>
-                    <div class="content_item"></div>
-                    <div class="content_item"></div>
                 </div>
             </div>
         </main>
