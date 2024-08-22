@@ -15,7 +15,9 @@ $(function(){
     $tabWrap.each(function(){
         var $this = $(this),
             $tabOpen = $this.find('.tab_menu > .tab_open'),
+            $tabBtnText = $this.find('.tab_menu > .tab_list > .tab_item.active').text(),
             $tabBtn = $this.find('.tab_menu > .tab_list > .tab_item > button.btn');
+        $tabOpen.find('span > em').text($tabBtnText);
         $tabOpen.off().on('click',function(){
             var $thisOpen = $(this);
             if($thisOpen.is('.active') === true){
@@ -38,5 +40,25 @@ $(function(){
         });
     });
     // tab menu - E
+    
+    // slick slide - S
+    // slick type full
+    $('.test_slide01 > .slide_list').slick({
+        accessibility: true,
+        speed: 1000,
+        arrows: true,
+        prevArrow: $('.test_slide01 > .button_wrap > .button_box.prev > .btn'),
+        nextArrow: $('.test_slide01 > .button_wrap > .button_box.next > .btn'),
+    });
+    // slick type full
+    $('.test_slide02 > .slide_list').slick({
+        accessibility: true,
+        slidesToShow: 3,
+        speed: 1000,
+        arrows: true,
+        prevArrow: $('.test_slide02 > .button_wrap > .button_box.prev > .btn'),
+        nextArrow: $('.test_slide02 > .button_wrap > .button_box.next > .btn'),
+    });
+    // slick slide - E
     
 });
