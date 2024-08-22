@@ -44,13 +44,114 @@
                             <li class="tab_item"><button type="button" class="btn"><span><em>공지사항</em></span></button></li>
                         </ul>
                     </div>
-                    <div class="tab_contents">
+                    <div class="tab_content">
                         <div class="content_item">
                             <h3>헤더</h3>
                             <h3>푸터</h3>
                         </div>
                         <div class="content_item active">
-                            <h3>탭메뉴 기본 코드</h3>
+                            <h3>탭메뉴 전체 복사</h3>
+                            <div class="button_wrap">
+                                <div class="copy_box">
+                                    <button class="copy css"><span><em>css all</em></span></button>
+<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+/* tab menu - S */
+/* tab menu common */
+.tab_wrap{display:block;width:100%;}
+.tab_wrap .tab_menu{display:block;position:relative;width:100%;font-size:0;line-height:0;}
+.tab_wrap .tab_menu .tab_open{display:none;}
+.tab_wrap .tab_menu .tab_list{display:block;width:100%;}
+.tab_wrap .tab_menu .tab_list .tab_item{display:inline-block;position:relative;z-index:0;vertical-align:top;}
+.tab_wrap .tab_menu .tab_list .tab_item.active{z-index:1;}
+.tab_wrap .tab_menu .tab_list .tab_item .btn{display:block;width:100%;height:100%;text-align:center;box-sizing:border-box;}
+.tab_wrap .tab_menu .tab_list .tab_item .btn span{display:block;width:100%;}
+.tab_wrap .tab_menu .tab_list .tab_item a.btn span{position:relative;top:50%;transform:translateY(-50%);}
+.tab_wrap .tab_menu .tab_list .tab_item .btn span em{display:inline;}
+.tab_wrap .tab_content{display:block;width:100%;}
+.tab_wrap .tab_content .content_item{display:none;width:100%;padding-top:30px;}
+.tab_wrap .tab_content .content_item.active{display:block;}
+.tab_wrap .tab_content.effect_fade .content_item{display:none;}
+.tab_wrap .tab_content.effect_fade .content_item.active{display:block;}
+/* tab menu type1 */
+.tab_wrap .tab_menu.type1 .tab_list{padding-top:1px;}
+.tab_wrap .tab_menu.type1 .tab_list .tab_item{height:50px;margin-top:-1px;margin-left:-1px;}
+.tab_wrap .tab_menu.type1 .tab_list .tab_item .btn{padding:0 20px;border-radius:0;border:solid 1px #aaa;transition-property:border, background-color;transition-duration:0.3s;}
+.tab_wrap .tab_menu.type1 .tab_list .tab_item.active .btn{background-color:#555;}
+.tab_wrap .tab_menu.type1 .tab_list .tab_item .btn span em{font-weight:400;font-size:20px;line-height:24px;color:#aaa;word-break:keep-all;transition-property:color;transition-duration:0.3s;}
+.tab_wrap .tab_menu.type1 .tab_list .tab_item.active .btn span em{color:#fff;}
+/* tab menu type1 [data-row="1"] */
+.tab_wrap .tab_menu.type1[data-row="1"] .tab_list .tab_item{width:calc((100% / 1) + 1px);}
+.tab_wrap .tab_menu.type1[data-row="1"] .tab_list .tab_item:nth-child(1n + 1){width:calc(100% / 1);margin-left:0;}
+/* tab menu type1 [data-row="2"] */
+.tab_wrap .tab_menu.type1[data-row="2"] .tab_list .tab_item{width:calc((100% / 2) + 1px);}
+.tab_wrap .tab_menu.type1[data-row="2"] .tab_list .tab_item:nth-child(2n + 1){width:calc(100% / 2);margin-left:0;}
+/* tab menu type1 [data-row="3"] */
+.tab_wrap .tab_menu.type1[data-row="3"] .tab_list .tab_item{width:calc((100% / 3) + 1px);}
+.tab_wrap .tab_menu.type1[data-row="3"] .tab_list .tab_item:nth-child(3n + 1){width:calc(100% / 3);margin-left:0;}
+/* tab menu type1 [data-row="4"] */
+.tab_wrap .tab_menu.type1[data-row="4"] .tab_list .tab_item{width:calc((100% / 4) + 1px);}
+.tab_wrap .tab_menu.type1[data-row="4"] .tab_list .tab_item:nth-child(4n + 1){width:calc(100% / 4);margin-left:0;}
+/* tab menu type1 [data-row="5"] */
+.tab_wrap .tab_menu.type1[data-row="5"] .tab_list .tab_item{width:calc((100% / 5) + 1px);}
+.tab_wrap .tab_menu.type1[data-row="5"] .tab_list .tab_item:nth-child(5n + 1){width:calc(100% / 5);margin-left:0;}
+/* tab menu type1 [data-row="6"] */
+.tab_wrap .tab_menu.type1[data-row="6"] .tab_list .tab_item{width:calc((100% / 6) + 1px);}
+.tab_wrap .tab_menu.type1[data-row="6"] .tab_list .tab_item:nth-child(6n + 1){width:calc(100% / 6);margin-left:0;}
+.tab_wrap .tab_menu.type1 .tab_list{padding-top:1px;}
+/* tab menu type2 */
+.tab_wrap .tab_menu.type2 .tab_list .tab_item{height:50px;}
+.tab_wrap .tab_menu.type2 .tab_list .tab_item .btn{padding:0 20px;}
+.tab_wrap .tab_menu.type2 .tab_list .tab_item .btn span em{font-weight:400;font-size:20px;line-height:24px;color:#aaa;word-break:keep-all;}
+.tab_wrap .tab_menu.type2 .tab_list .tab_item.active .btn span em{color:#09f;}
+/* tab menu responsive */
+@media all and (max-width:1000px){
+    .tab_wrap .tab_menu.responsive .tab_open{display:block;width:100%;height:50px;border:solid 1px #aaa;}
+    .tab_wrap .tab_menu.responsive .tab_open span em{font-weight:600;font-size:18px;line-height:22px;color:#999;}
+    .tab_wrap .tab_menu.responsive .tab_list{display:none;position:absolute;z-index:1;overflow:hidden;left:0;top:100%;width:100%;background-color:#444;}
+    .tab_wrap .tab_menu.responsive .tab_list .tab_item{display:block;width:100% !important;height:auto;margin:0;}
+    .tab_wrap .tab_menu.responsive .tab_list .tab_item .btn{padding:10px;}
+    .tab_wrap .tab_menu.responsive .tab_list .tab_item.active .btn{background-color:#666;}
+}
+/* tab menu - E */
+</textarea>
+                                </div>
+                                <div class="copy_box">
+                                    <button class="copy javascript"><span><em>javascript</em></span></button>
+<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+// tab menu - S
+var $tabWrap = $('.tab_wrap');
+$tabWrap.each(function(){
+    var $this = $(this),
+        $tabOpen = $this.find('.tab_menu > .tab_open'),
+        $tabBtn = $this.find('.tab_menu > .tab_list > .tab_item > button.btn');
+    $tabOpen.off().on('click',function(){
+        var $thisOpen = $(this);
+        if($thisOpen.is('.active') === true){
+            $thisOpen.removeClass('active').attr('title','탭메뉴 열기').next().stop().slideUp();
+        }else if($thisOpen.is('.active') === false){
+            $thisOpen.addClass('active').attr('title','탭메뉴 닫기').next().stop().slideDown();
+        }
+    });
+    $tabBtn.on('click',function(){
+        var $thisBtn = $(this),
+            $tabIndex = $thisBtn.parent().index(),
+            $thisText = $thisBtn.find('span > em').text(),
+            $prevOpen = $thisBtn.closest('.tab_list').prev();
+        $thisBtn.attr('title','선택됨').parent().addClass('active').siblings().removeClass('active').children('.btn').removeAttr('title');
+        $thisBtn.closest('.tab_menu').siblings('.tab_content').children('.content_item').removeClass('active').eq($tabIndex).addClass('active');
+        if($prevOpen.is('.active')){
+            $prevOpen.removeClass('active').attr('title','탭메뉴 열기').next().stop().slideUp();
+            $prevOpen.find('span > em').text($thisText);
+        }
+    });
+});
+// tab menu - E
+</textarea>
+                                </div>
+                            </div>
+                            <h3>탭메뉴 부분 별 복사</h3>
+                            <h4>기본 코드 복사</h4>
+                            <p>스타일 없이 기능만을 가지는 코드</p>
                             <div class="button_wrap">
                                 <div class="copy_box">
                                     <button class="copy html"><span><em>html common</em></span></button>
@@ -63,7 +164,7 @@
             <li class="tab_item"><button type="button" class="btn"><span><em></em></span></button></li>
         </ul>
     </div>
-    <div class="tab_contents">
+    <div class="tab_content">
         <div class="content_item active"></div>
         <div class="content_item"></div>
     </div>
@@ -84,35 +185,15 @@
 .tab_wrap .tab_menu .tab_list .tab_item .btn span{display:block;width:100%;}
 .tab_wrap .tab_menu .tab_list .tab_item a.btn span{position:relative;top:50%;transform:translateY(-50%);}
 .tab_wrap .tab_menu .tab_list .tab_item .btn span em{display:inline;}
-.tab_wrap .tab_contents{display:block;width:100%;}
-.tab_wrap .tab_contents .content_item{display:none;width:100%;padding-top:30px;}
-.tab_wrap .tab_contents .content_item.active{display:block;}
-</textarea>
-                                </div>
-                                <div class="copy_box">
-                                    <button class="copy javascript"><span><em>javascript common</em></span></button>
-<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-// tab menu - S
-var $tabWrap = $('.tab_wrap');
-$tabWrap.each(function(){
-    var $this = $(this),
-        $tabMenuItem = $this.find('.tab_menu .tab_list .tab_item'),
-        $tabBtn = $tabMenuItem.find('.btn');
-    $tabBtn.on('click',function(){
-        var $thisBtn = $(this),
-            $tabIndex = $thisBtn.parent().index(),
-            $tabContentItem = $thisBtn.closest($tabWrap).find('.tab_contents .content_item');
-        $thisBtn.attr('title','선택됨').parent().addClass('active').siblings().removeClass('active').find($tabBtn).removeAttr('title');
-        $tabContentItem.removeClass('active').eq($tabIndex).addClass('active');
-    });
-});
-// tab menu - E
+.tab_wrap .tab_content{display:block;width:100%;}
+.tab_wrap .tab_content .content_item{display:none;width:100%;padding-top:30px;}
+.tab_wrap .tab_content .content_item.active{display:block;}
 </textarea>
                                 </div>
                             </div>
 
-                            <h3>탭메뉴 type1</h3>
-                            <p>data-row 속성으로 한줄에 들어오는 아이템 개수 조절</p>
+                            <h4>.tab_menu.type1</h4>
+                            <p>data-row 속성으로 한줄에 들어오는 아이템 개수 조절 (기본 5)</p>
                             <div class="tab_wrap">
                                 <div class="tab_menu type1" data-row="5">
                                     <button type="button" title="탭메뉴 열기" class="tab_open"><span><em>탭버튼 01</em></span></button>
@@ -121,14 +202,14 @@ $tabWrap.each(function(){
                                         <li class="tab_item"><button type="button" class="btn"><span><em>탭버튼 02</em></span></button></li>
                                     </ul>
                                 </div>
-                                <div class="tab_contents">
+                                <div class="tab_content">
                                     <div class="content_item active">탭내용 01</div>
                                     <div class="content_item">탭내용 02</div>
                                 </div>
                             </div>
                             <div class="button_wrap">
                                 <div class="copy_box">
-                                    <button class="copy html"><span><em>html copy</em></span></button>
+                                    <button class="copy html"><span><em>html</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 <div class="tab_wrap">
     <div class="tab_menu type1" data-row="5">
@@ -137,7 +218,7 @@ $tabWrap.each(function(){
             <li class="tab_item"><button type="button" class="btn"><span><em></em></span></button></li>
         </ul>
     </div>
-    <div class="tab_contents">
+    <div class="tab_content">
         <div class="content_item active"></div>
         <div class="content_item"></div>
     </div>
@@ -145,17 +226,13 @@ $tabWrap.each(function(){
 </textarea>
                                 </div>
                                 <div class="copy_box">
-                                    <button class="copy css"><span><em>css copy</em></span></button>
-<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-</textarea>
-                                </div>
-                                <div class="copy_box">
-                                    <button class="copy javascript"><span><em>javascript copy</em></span></button>
+                                    <button class="copy css"><span><em>css</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
                                 </div>
                             </div>
-                            <h3>탭메뉴 type2</h3>
+                            <h4>.tab_menu.type2</h4>
+                            <p>data-row 속성 없음</p>
                             <div class="tab_wrap">
                                 <div class="tab_menu type2">
                                     <button type="button" title="탭메뉴 열기" class="tab_open"><span><em>탭버튼 01</em></span></button>
@@ -164,14 +241,14 @@ $tabWrap.each(function(){
                                         <li class="tab_item"><button class="btn"><span><em>탭버튼 02</em></span></button></li>
                                     </ul>
                                 </div>
-                                <div class="tab_contents">
+                                <div class="tab_content">
                                     <div class="content_item active">탭내용 01</div>
                                     <div class="content_item">탭내용 02</div>
                                 </div>
                             </div>
                             <div class="button_wrap">
                                 <div class="copy_box">
-                                    <button class="copy html"><span><em>html copy</em></span></button>
+                                    <button class="copy html"><span><em>html</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 <div class="tab_wrap">
     <div class="tab_menu type2">
@@ -180,7 +257,7 @@ $tabWrap.each(function(){
             <li class="tab_item"><button class="btn"><span><em></em></span></button></li>
         </ul>
     </div>
-    <div class="tab_contents">
+    <div class="tab_content">
         <div class="content_item active"></div>
         <div class="content_item"></div>
     </div>
@@ -188,18 +265,14 @@ $tabWrap.each(function(){
 </textarea>
                                 </div>
                                 <div class="copy_box">
-                                    <button class="copy css"><span><em>css copy</em></span></button>
-<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-</textarea>
-                                </div>
-                                <div class="copy_box">
-                                    <button class="copy javascript"><span><em>javascript copy</em></span></button>
+                                    <button class="copy css"><span><em>css</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
                                 </div>
                             </div>
-                            <h3>탭메뉴 responsive</h3>
-                            <p>반응형에서 탭버튼 셀렉트로 바뀜</p>
+                            <h3>.tab_menu.responsive</h3>
+                            <p>type1, 2 모두 사용 가능</p>
+                            <p>화면 자이즈가 태블릿 이하일 때 탭버튼이 셀렉트 형태로 바뀜</p>
                             <div class="tab_wrap">
                                 <div class="tab_menu type1 responsive" data-row="5">
                                     <button type="button" title="탭메뉴 열기" class="tab_open"><span><em>탭버튼 01</em></span></button>
@@ -208,14 +281,14 @@ $tabWrap.each(function(){
                                         <li class="tab_item"><button class="btn"><span><em>탭버튼 02</em></span></button></li>
                                     </ul>
                                 </div>
-                                <div class="tab_contents">
+                                <div class="tab_content">
                                     <div class="content_item active">탭내용 01</div>
                                     <div class="content_item">탭내용 02</div>
                                 </div>
                             </div>
                             <div class="button_wrap">
                                 <div class="copy_box">
-                                    <button class="copy html"><span><em>html copy</em></span></button>
+                                    <button class="copy html"><span><em>html</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 <div class="tab_wrap">
     <div class="tab_menu type1 responsive" data-row="5">
@@ -225,7 +298,7 @@ $tabWrap.each(function(){
             <li class="tab_item"><button class="btn"><span><em></em></span></button></li>
         </ul>
     </div>
-    <div class="tab_contents">
+    <div class="tab_content">
         <div class="content_item active"></div>
         <div class="content_item"></div>
     </div>
@@ -233,12 +306,7 @@ $tabWrap.each(function(){
 </textarea>
                                 </div>
                                 <div class="copy_box">
-                                    <button class="copy css"><span><em>css copy</em></span></button>
-<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-</textarea>
-                                </div>
-                                <div class="copy_box">
-                                    <button class="copy javascript"><span><em>javascript copy</em></span></button>
+                                    <button class="copy css"><span><em>css</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
                                 </div>
@@ -268,17 +336,17 @@ $tabWrap.each(function(){
                             </div>
                             <div class="button_wrap">
                                 <div class="copy_box">
-                                    <button class="copy html"><span><em>html copy</em></span></button>
+                                    <button class="copy html"><span><em>html</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
                                 </div>
                                 <div class="copy_box">
-                                    <button class="copy css"><span><em>css copy</em></span></button>
+                                    <button class="copy css"><span><em>css</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
                                 </div>
                                 <div class="copy_box">
-                                    <button class="copy javascript"><span><em>javascript copy</em></span></button>
+                                    <button class="copy javascript"><span><em>javascript</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
                                 </div>
@@ -306,17 +374,17 @@ $tabWrap.each(function(){
                             </div>
                             <div class="button_wrap">
                                 <div class="copy_box">
-                                    <button class="copy html"><span><em>html copy</em></span></button>
+                                    <button class="copy html"><span><em>html</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
                                 </div>
                                 <div class="copy_box">
-                                    <button class="copy css"><span><em>css copy</em></span></button>
+                                    <button class="copy css"><span><em>css</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
                                 </div>
                                 <div class="copy_box">
-                                    <button class="copy javascript"><span><em>javascript copy</em></span></button>
+                                    <button class="copy javascript"><span><em>javascript</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
                                 </div>
