@@ -11,13 +11,17 @@ $(function(){
     });
     
     // tab menu - S
-    var $tabWrap = $('.tab_wrap');
-    $tabWrap.each(function(){
+    $('.tab_wrap').each(function(){
         var $this = $(this),
-            $tabOpen = $this.find('.tab_menu > .tab_open'),
-            $tabBtnText = $this.find('.tab_menu > .tab_list > .tab_item.active').text(),
-            $tabBtn = $this.find('.tab_menu > .tab_list > .tab_item > button.btn');
-        $tabOpen.find('span > em').text($tabBtnText);
+            $tabMenu = $this.find('.tab_menu'),
+            $tabOpen = $tabMenu.find('.tab_open'),
+            $tabItem = $tabMenu.find('.tab_list > .tab_item'),
+            $tabActive = $tabMenu.find('.tab_list > .tab_item.active'),
+            $tabBtn = $tabItem.find('button.btn');
+        $tabOpen.find('span > em').text($tabActive.text());
+        $tabBtn.removeAttr('title');
+        $tabItem.eq($tabActive.index()).find('.btn').attr('title','선택됨');
+        if($tabMenu.is('.effect_fade') === true){$this.find('.tab_content > .tab_item.active').addClass('on');}
         $tabOpen.off().on('click',function(){
             var $thisOpen = $(this);
             if($thisOpen.is('.active') === true){
@@ -28,15 +32,25 @@ $(function(){
         });
         $tabBtn.on('click',function(){
             var $thisBtn = $(this),
-                $tabIndex = $thisBtn.parent().index(),
+                $thisTabMenu = $thisBtn.closest('.tab_menu'),
+                $thisTabItem = $thisTabMenu.siblings('.tab_content').children('.content_item'),
+                $thisIndex = $thisBtn.parent().index(),
                 $thisText = $thisBtn.find('span > em').text(),
                 $prevOpen = $thisBtn.closest('.tab_list').prev();
             $thisBtn.attr('title','선택됨').parent().addClass('active').siblings().removeClass('active').children('.btn').removeAttr('title');
-            $thisBtn.closest('.tab_menu').siblings('.tab_content').children('.content_item').removeClass('active').eq($tabIndex).addClass('active');
+            if($thisTabMenu.is('.effect_fade') === true){
+                $thisTabItem.eq(!$thisIndex).removeClass('on');
+                $thisTabItem.eq($thisIndex).addClass('active on');
+                setTimeout(function(){
+                    $thisTabItem.eq(!$thisIndex).removeClass('active');
+                },300);
+            }else{
+                $thisTabItem.removeClass('active').eq($thisIndex).addClass('active');
+            }
             if($prevOpen.is('.active')){
                 $prevOpen.removeClass('active').attr('title','탭메뉴 열기').next().stop().slideUp();
-                $prevOpen.find('span > em').text($thisText);
             }
+            $prevOpen.find('span > em').text($thisText);
         });
     });
     // tab menu - E
