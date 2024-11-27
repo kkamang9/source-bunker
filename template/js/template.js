@@ -1,78 +1,83 @@
-$(function(){
-    // $(function(){}); = $(document).ready(function(){ }); = document.onload()
-    
-    // copy button script
-    $('.copy_box').each(function(){
-        var $copyButton = $(this).find('.copy'),
-            $copyTextarea = $(this).find('textarea.copy_text').text();
-        $copyButton.on('click',function(){
-            navigator.clipboard.writeText($copyTextarea).then();
+(function ($) {
+    'use strict';
+    $(function(){
+        // copy button script - S
+        $('.copy_box').each(function(){
+            var $copyButton = $(this).find('.copy'),
+                $copyTextarea = $(this).find('textarea.copy_text').text();
+            $copyButton.on('click',function(){
+                navigator.clipboard.writeText($copyTextarea).then();
+            });
         });
-    });
-    
-    // tab menu - S
-    $('.tab_wrap').each(function(){
-        var $this = $(this),
-            $tabMenu = $this.find('.tab_menu'),
-            $tabOpen = $tabMenu.find('.tab_open'),
-            $tabItem = $tabMenu.find('.tab_list > .tab_item'),
-            $tabActive = $tabMenu.find('.tab_list > .tab_item.active'),
-            $tabBtn = $tabItem.find('button.btn');
-        $tabOpen.find('span > em').text($tabActive.text());
-        $tabBtn.removeAttr('title');
-        $tabItem.eq($tabActive.index()).find('.btn').attr('title','선택됨');
-        if($tabMenu.is('.effect_fade') === true){$this.find('.tab_content > .tab_item.active').addClass('on');}
-        $tabOpen.off().on('click',function(){
-            var $thisOpen = $(this);
-            if($thisOpen.is('.active') === true){
-                $thisOpen.removeClass('active').attr('title','탭메뉴 열기').next().stop().slideUp();
-            }else if($thisOpen.is('.active') === false){
-                $thisOpen.addClass('active').attr('title','탭메뉴 닫기').next().stop().slideDown();
-            }
+        // copy button script - E
+        
+        // tab menu - S
+        $('.tab_wrap').each(function(){
+            var $this = $(this),
+                $tabMenu = $this.children('.tab_menu'),
+                $tabOpen = $tabMenu.find('.tab_open'),
+                $tabItem = $tabMenu.find('.tab_list .tab_item'),
+                $tabActive = $tabMenu.find('.tab_list .tab_item.active'),
+                $tabBtn = $tabItem.find('button.btn'),
+                $tabContents = $this.children('.tab_contents'),
+                $contentItem = $tabContents.children('.content_item'),
+                $contentActive = $tabContents.children('.content_item.active');
+            $tabOpen.find('span em').text($tabActive.find('span em').text());
+            $tabBtn.removeAttr('title');
+            $tabActive.find('.btn').attr('title','선택됨');
+            if($tabMenu.is('.effect_fade') === true){$contentActive.addClass('on');}
+            $tabOpen.off().on('click',function(){
+                var $thisOpen = $(this);
+                if($thisOpen.is('.active') === true){
+                    $thisOpen.removeClass('active').attr('title','탭메뉴 열기').next().stop().slideUp();
+                }else if($thisOpen.is('.active') === false){
+                    $thisOpen.addClass('active').attr('title','탭메뉴 닫기').next().stop().slideDown();
+                }
+            });
+            $tabBtn.on('click',function(){
+                var $thisBtn = $(this),
+                    $thisIndex = $thisBtn.parent().index(),
+                    $thisText = $thisBtn.find('span > em').text(),
+                    $indexContent = $contentItem.eq($thisIndex);
+                $thisBtn.attr('title','선택됨').parent().addClass('active').siblings().removeClass('active').children('.btn').removeAttr('title');
+                if($tabMenu.is('.effect_fade') === true){
+                    $indexContent.addClass('active').siblings().removeClass('on');
+                    setTimeout(function(){
+                        $indexContent.addClass('on');
+                    },1);
+                    setTimeout(function(){
+                        $indexContent.siblings().removeClass('active');
+                    },300);
+                }else{
+                    $indexContent.addClass('active').siblings().removeClass('active');
+                }
+                if($tabOpen.is('.active')){
+                    $tabOpen.removeClass('active').attr('title','탭메뉴 열기').next().stop().slideUp();
+                }
+                $tabOpen.find('span > em').text($thisText);
+                $indexContent.find('.slick-slider').each(function(){$(this).slick('setPosition');});
+            });
         });
-        $tabBtn.on('click',function(){
-            var $thisBtn = $(this),
-                $thisTabMenu = $thisBtn.closest('.tab_menu'),
-                $thisTabItem = $thisTabMenu.siblings('.tab_content').children('.content_item'),
-                $thisIndex = $thisBtn.parent().index(),
-                $thisText = $thisBtn.find('span > em').text(),
-                $prevOpen = $thisBtn.closest('.tab_list').prev();
-            $thisBtn.attr('title','선택됨').parent().addClass('active').siblings().removeClass('active').children('.btn').removeAttr('title');
-            if($thisTabMenu.is('.effect_fade') === true){
-                $thisTabItem.eq(!$thisIndex).removeClass('on');
-                $thisTabItem.eq($thisIndex).addClass('active on');
-                setTimeout(function(){
-                    $thisTabItem.eq(!$thisIndex).removeClass('active');
-                },300);
-            }else{
-                $thisTabItem.removeClass('active').eq($thisIndex).addClass('active');
-            }
-            if($prevOpen.is('.active')){
-                $prevOpen.removeClass('active').attr('title','탭메뉴 열기').next().stop().slideUp();
-            }
-            $prevOpen.find('span > em').text($thisText);
+        // tab menu - E
+        
+        // slick slide - S
+        // slick type full
+        $('.test_slide01 > .slide_list').slick({
+            accessibility: true,
+            speed: 1000,
+            arrows: true,
+            prevArrow: $('.test_slide01 > .button_wrap > .button_box.prev > .btn'),
+            nextArrow: $('.test_slide01 > .button_wrap > .button_box.next > .btn'),
         });
+        // slick type full
+        $('.test_slide02 > .slide_list').slick({
+            accessibility: true,
+            slidesToShow: 3,
+            speed: 1000,
+            arrows: true,
+            prevArrow: $('.test_slide02 > .button_wrap > .button_box.prev > .btn'),
+            nextArrow: $('.test_slide02 > .button_wrap > .button_box.next > .btn'),
+        });
+        // slick slide - E
     });
-    // tab menu - E
-    
-    // slick slide - S
-    // slick type full
-    $('.test_slide01 > .slide_list').slick({
-        accessibility: true,
-        speed: 1000,
-        arrows: true,
-        prevArrow: $('.test_slide01 > .button_wrap > .button_box.prev > .btn'),
-        nextArrow: $('.test_slide01 > .button_wrap > .button_box.next > .btn'),
-    });
-    // slick type full
-    $('.test_slide02 > .slide_list').slick({
-        accessibility: true,
-        slidesToShow: 3,
-        speed: 1000,
-        arrows: true,
-        prevArrow: $('.test_slide02 > .button_wrap > .button_box.prev > .btn'),
-        nextArrow: $('.test_slide02 > .button_wrap > .button_box.next > .btn'),
-    });
-    // slick slide - E
-    
-});
+})(jQuery);

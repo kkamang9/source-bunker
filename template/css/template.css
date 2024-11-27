@@ -20,11 +20,9 @@
 .tab_wrap .tab_menu .tab_list .tab_item .btn span{display:block;width:100%;}
 .tab_wrap .tab_menu .tab_list .tab_item a.btn span{position:relative;top:50%;transform:translateY(-50%);}
 .tab_wrap .tab_menu .tab_list .tab_item .btn span em{display:inline;}
-.tab_wrap .tab_content{display:block;width:100%;}
-.tab_wrap .tab_content .content_item{display:none;width:100%;padding-top:30px;}
-.tab_wrap .tab_content .content_item.active{display:block;}
-.tab_wrap .tab_content.effect_fade .content_item{display:none;}
-.tab_wrap .tab_content.effect_fade .content_item.active{display:block;}
+.tab_wrap .tab_contents{display:block;width:100%;}
+.tab_wrap .tab_contents .content_item{display:none;width:100%;padding-top:30px;}
+.tab_wrap .tab_contents .content_item.active{display:block;}
 /* tab menu type1 */
 .tab_wrap .tab_menu.type1 .tab_list{padding-top:1px;}
 .tab_wrap .tab_menu.type1 .tab_list .tab_item{height:50px;margin-top:-1px;margin-left:-1px;}
@@ -57,8 +55,11 @@
 .tab_wrap .tab_menu.type2 .tab_list .tab_item .btn span em{font-weight:400;font-size:20px;line-height:24px;color:#aaa;word-break:keep-all;}
 .tab_wrap .tab_menu.type2 .tab_list .tab_item.active .btn span em{color:#09f;}
 /* effect_fade */
-.tab_wrap .tab_menu.effect_fade + .tab_content .content_item{display:block;overflow:hidden;opacity:0;visibility:hidden;height:0;padding-top:0;transition-property:opacity, visibility;transition-duration:0.3s;}
-.tab_wrap .tab_menu.effect_fade + .tab_content .content_item.active{overflow:visible;opacity:1;visibility:visible;height:auto;padding-top:30px;}
+.tab_wrap .tab_menu.effect_fade + .tab_contents{position:relative;}
+.tab_wrap .tab_menu.effect_fade + .tab_contents > .content_item{opacity:0;visibility:hidden;transition:opacity,visibility;transition-duration:0.3s;}
+.tab_wrap .tab_menu.effect_fade + .tab_contents > .content_item.active{display:block;position:absolute;left:0;top:0;}
+.tab_wrap .tab_menu.effect_fade + .tab_contents > .content_item.on{opacity:1;visibility:visible;}
+.tab_wrap .tab_menu.effect_fade + .tab_contents > .content_item.active.on{position:static;}
 /* tab menu responsive */
 @media all and (max-width:1000px){
     .tab_wrap .tab_menu.responsive .tab_open{display:block;width:100%;height:50px;border:solid 1px #aaa;}

@@ -40,20 +40,20 @@
                     <div class="tab_menu type1 effect_fade" data-row="5">
                         <button type="button" title="탭메뉴 열기" class="tab_open"><span><em></em></span></button>
                         <ul class="tab_list">
-                            <li class="tab_item"><button type="button" class="btn"><span><em>헤더, 푸터</em></span></button></li>
-                            <li class="tab_item active"><button type="button" title="선택됨" class="btn"><span><em>탭메뉴</em></span></button></li>
+                            <li class="tab_item active"><button type="button" class="btn"><span><em>헤더, 푸터</em></span></button></li>
+                            <li class="tab_item"><button type="button" title="선택됨" class="btn"><span><em>탭메뉴</em></span></button></li>
                             <li class="tab_item"><button type="button" class="btn"><span><em>슬릭 슬라이드</em></span></button></li>
                             <li class="tab_item"><button type="button" class="btn"><span><em>링크 리스트</em></span></button></li>
                             <li class="tab_item"><button type="button" class="btn"><span><em>공지사항</em></span></button></li>
                         </ul>
                     </div>
-                    <div class="tab_content">
-                        <div class="content_item">
+                    <div class="tab_contents">
+                        <div class="content_item active">
                             <h3>헤더</h3>
                             <i class="split"></i>
                             <h3>푸터</h3>
                         </div>
-                        <div class="content_item active">
+                        <div class="content_item">
                             <h3>탭메뉴 템플릿 전체 복사</h3>
                             <div class="button_wrap">
                                 <div class="copy_box">
@@ -71,11 +71,11 @@
 .tab_wrap .tab_menu .tab_list .tab_item .btn span{display:block;width:100%;}
 .tab_wrap .tab_menu .tab_list .tab_item a.btn span{position:relative;top:50%;transform:translateY(-50%);}
 .tab_wrap .tab_menu .tab_list .tab_item .btn span em{display:inline;}
-.tab_wrap .tab_content{display:block;width:100%;}
-.tab_wrap .tab_content .content_item{display:none;width:100%;padding-top:30px;}
-.tab_wrap .tab_content .content_item.active{display:block;}
-.tab_wrap .tab_content.effect_fade .content_item{display:none;}
-.tab_wrap .tab_content.effect_fade .content_item.active{display:block;}
+.tab_wrap .tab_contents{display:block;width:100%;}
+.tab_wrap .tab_contents .content_item{display:none;width:100%;padding-top:30px;}
+.tab_wrap .tab_contents .content_item.active{display:block;}
+.tab_wrap .tab_contents.effect_fade .content_item{display:none;}
+.tab_wrap .tab_contents.effect_fade .content_item.active{display:block;}
 /* tab menu type1 */
 .tab_wrap .tab_menu.type1 .tab_list{padding-top:1px;}
 .tab_wrap .tab_menu.type1 .tab_list .tab_item{height:50px;margin-top:-1px;margin-left:-1px;}
@@ -108,8 +108,8 @@
 .tab_wrap .tab_menu.type2 .tab_list .tab_item .btn span em{font-weight:400;font-size:20px;line-height:24px;color:#aaa;word-break:keep-all;}
 .tab_wrap .tab_menu.type2 .tab_list .tab_item.active .btn span em{color:#09f;}
 /* effect_fade */
-.tab_wrap .tab_menu.effect_fade + .tab_content .content_item{display:inline-block;overflow:hidden;opacity:0;visibility:hidden;height:0;transition-property:opacity, visibility;transition-duration:0.3s;}
-.tab_wrap .tab_menu.effect_fade + .tab_content .content_item.active{opacity:1;visibility:visible;height:auto;}
+.tab_wrap .tab_menu.effect_fade + .tab_contents .content_item{display:inline-block;overflow:hidden;opacity:0;visibility:hidden;height:0;transition-property:opacity, visibility;transition-duration:0.3s;}
+.tab_wrap .tab_menu.effect_fade + .tab_contents .content_item.active{opacity:1;visibility:visible;height:auto;}
 /* tab menu responsive */
 @media all and (max-width:1000px){
     .tab_wrap .tab_menu.responsive .tab_open{display:block;width:100%;height:50px;border:solid 1px #aaa;}
@@ -147,7 +147,7 @@ $tabWrap.each(function(){
             $thisText = $thisBtn.find('span > em').text(),
             $prevOpen = $thisBtn.closest('.tab_list').prev();
         $thisBtn.attr('title','선택됨').parent().addClass('active').siblings().removeClass('active').children('.btn').removeAttr('title');
-        $thisBtn.closest('.tab_menu').siblings('.tab_content').children('.content_item').removeClass('active').eq($tabIndex).addClass('active');
+        $thisBtn.closest('.tab_menu').siblings('.tab_contents').children('.content_item').removeClass('active').eq($tabIndex).addClass('active');
         if($prevOpen.is('.active')){
             $prevOpen.removeClass('active').attr('title','탭메뉴 열기').next().stop().slideUp();
             $prevOpen.find('span > em').text($thisText);
@@ -175,7 +175,7 @@ $tabWrap.each(function(){
             <li class="tab_item"><button type="button" class="btn"><span><em></em></span></button></li>
         </ul>
     </div>
-    <div class="tab_content">
+    <div class="tab_contents">
         <div class="content_item active"></div>
         <div class="content_item"></div>
     </div>
@@ -196,11 +196,11 @@ $tabWrap.each(function(){
 .tab_wrap .tab_menu .tab_list .tab_item .btn span{display:block;width:100%;}
 .tab_wrap .tab_menu .tab_list .tab_item a.btn span{position:relative;top:50%;transform:translateY(-50%);}
 .tab_wrap .tab_menu .tab_list .tab_item .btn span em{display:inline;}
-.tab_wrap .tab_content{display:block;width:100%;}
-.tab_wrap .tab_content .content_item{display:none;width:100%;padding-top:30px;}
-.tab_wrap .tab_content .content_item.active{display:block;}
-.tab_wrap .tab_content.effect_fade .content_item{display:none;}
-.tab_wrap .tab_content.effect_fade .content_item.active{display:block;}
+.tab_wrap .tab_contents{display:block;width:100%;}
+.tab_wrap .tab_contents .content_item{display:none;width:100%;padding-top:30px;}
+.tab_wrap .tab_contents .content_item.active{display:block;}
+.tab_wrap .tab_contents.effect_fade .content_item{display:none;}
+.tab_wrap .tab_contents.effect_fade .content_item.active{display:block;}
 </textarea>
                                 </div>
                             </div>
@@ -219,7 +219,7 @@ $tabWrap.each(function(){
             <li class="tab_item"><button type="button" class="btn"><span><em></em></span></button></li>
         </ul>
     </div>
-    <div class="tab_content">
+    <div class="tab_contents">
         <div class="content_item active"></div>
         <div class="content_item"></div>
     </div>
@@ -266,7 +266,7 @@ $tabWrap.each(function(){
                                         <li class="tab_item"><button type="button" class="btn"><span><em>탭버튼 02</em></span></button></li>
                                     </ul>
                                 </div>
-                                <div class="tab_content">
+                                <div class="tab_contents">
                                     <div class="content_item active">탭내용 01</div>
                                     <div class="content_item">탭내용 02</div>
                                 </div>
@@ -286,7 +286,7 @@ $tabWrap.each(function(){
             <li class="tab_item"><button class="btn"><span><em></em></span></button></li>
         </ul>
     </div>
-    <div class="tab_content">
+    <div class="tab_contents">
         <div class="content_item active"></div>
         <div class="content_item"></div>
     </div>
@@ -312,7 +312,7 @@ $tabWrap.each(function(){
                                         <li class="tab_item"><button class="btn"><span><em>탭버튼 02</em></span></button></li>
                                     </ul>
                                 </div>
-                                <div class="tab_content">
+                                <div class="tab_contents">
                                     <div class="content_item active">탭내용 01</div>
                                     <div class="content_item">탭내용 02</div>
                                 </div>
@@ -330,8 +330,8 @@ $tabWrap.each(function(){
                                     <button class="copy css"><span><em>type1 css</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 /* effect_fade */
-.tab_wrap .tab_menu.effect_fade + .tab_content .content_item{display:block;overflow:hidden;opacity:0;visibility:hidden;height:0;padding-top:0;transition-property:opacity, visibility;transition-duration:0.3s;}
-.tab_wrap .tab_menu.effect_fade + .tab_content .content_item.active{overflow:visible;opacity:1;visibility:visible;height:auto;padding-top:30px;}
+.tab_wrap .tab_menu.effect_fade + .tab_contents .content_item{display:block;overflow:hidden;opacity:0;visibility:hidden;height:0;padding-top:0;transition-property:opacity, visibility;transition-duration:0.3s;}
+.tab_wrap .tab_menu.effect_fade + .tab_contents .content_item.active{overflow:visible;opacity:1;visibility:visible;height:auto;padding-top:30px;}
 </textarea>
                                 </div>
                             </div>
@@ -343,7 +343,7 @@ $tabWrap.each(function(){
                                         <li class="tab_item"><button type="button" class="btn"><span><em>탭메뉴 02</em></span></button></li>
                                     </ul>
                                 </div>
-                                <div class="tab_content">
+                                <div class="tab_contents">
                                     <div class="content_item active">탭메뉴 01</div>
                                     <div class="content_item">탭메뉴 02</div>
                                 </div>
@@ -364,7 +364,7 @@ $tabWrap.each(function(){
             <li class="tab_item"><button class="btn"><span><em></em></span></button></li>
         </ul>
     </div>
-    <div class="tab_content">
+    <div class="tab_contents">
         <div class="content_item active"></div>
         <div class="content_item"></div>
     </div>
@@ -382,7 +382,7 @@ $tabWrap.each(function(){
             <li class="tab_item"><button class="btn"><span><em></em></span></button></li>
         </ul>
     </div>
-    <div class="tab_content">
+    <div class="tab_contents">
         <div class="content_item active"></div>
         <div class="content_item"></div>
     </div>
@@ -413,7 +413,7 @@ $tabWrap.each(function(){
                                         <li class="tab_item"><button class="btn"><span><em>탭버튼 02</em></span></button></li>
                                     </ul>
                                 </div>
-                                <div class="tab_content">
+                                <div class="tab_contents">
                                     <div class="content_item active">탭내용 01</div>
                                     <div class="content_item">탭내용 02</div>
                                 </div>
@@ -429,7 +429,7 @@ $tabWrap.each(function(){
                                         <li class="tab_item"><button type="button" class="btn"><span><em></em></span></button></li>
                                     </ul>
                                 </div>
-                                <div class="tab_content">
+                                <div class="tab_contents">
                                     <div class="content_item active"></div>
                                     <div class="content_item"></div>
                                 </div>
