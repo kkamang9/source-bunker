@@ -60,13 +60,15 @@
                 pauseOnDotsClick: true,
                 
                 arrows: true, //컨트롤러 사용 유무
-                prevArrow: ,
-                nextArrow: ,
-                autoArrow: ,
+                prevArrow: $(element),
+                nextArrow: $(element),
+                
+                autoArrow: $(element),
                 pauseText: '정지',
                 playText: '재생',
-                total: ,
-                current: ,
+                
+                total: $(element),
+                current: $(element),
                 
                 dots: false, //썸네일 사용여부
                 appendDots: $(element), //썸네일 위치지정
@@ -87,14 +89,14 @@
                 
                 zIndex: 0,
                 responsive: [{
-                    breakpoint: ,
+                    breakpoint: 1501,
                     settings: {
                     }
                 },{
-                    breakpoint: ,
+                    breakpoint: 1000,
                     settings: {
                     }
-                }]
+                }],
                 
                 
                 
@@ -114,7 +116,7 @@
                 lazyLoad: 'ondemand',
                 mobileFirst: false,
                 respondTo: 'window',
-                responsive: null,
+                //responsive: null,
                 rtl: false,
                 slide: '',
                 touchMove: true,

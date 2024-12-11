@@ -62,21 +62,28 @@
         
         // slick slide - S
         // slick type full
-        $('.test_slide01 > .slide_list').slick({
+        $('.test_slide01 .slide_list').slick({
             accessibility: true,
             speed: 1000,
             arrows: true,
-            prevArrow: $('.test_slide01 > .button_wrap > .button_box.prev > .btn'),
-            nextArrow: $('.test_slide01 > .button_wrap > .button_box.next > .btn'),
+            prevArrow: $('.test_slide01 .button_wrap .button_box.prev .btn'),
+            nextArrow: $('.test_slide01 .button_wrap .button_box.next .btn'),
+            autoArrow: $('.test_slide01 .control_box .button_box.auto .btn'),
+            pauseText: '정지',
+            playText: '재생',
+            total: $('.test_slide01 .control_box .num_box .number.total'),
+            current: $('.test_slide01 .control_box .num_box .number.current'),
+            dots: true,
+            appendDots: $('.test_slide01 .button_wrap'),
         });
         // slick type full
-        $('.test_slide02 > .slide_list').slick({
+        $('.test_slide02 .slide_list').slick({
             accessibility: true,
             slidesToShow: 3,
             speed: 1000,
             arrows: true,
-            prevArrow: $('.test_slide02 > .button_wrap > .button_box.prev > .btn'),
-            nextArrow: $('.test_slide02 > .button_wrap > .button_box.next > .btn'),
+            prevArrow: $('.test_slide02 .button_wrap .button_box.prev .btn'),
+            nextArrow: $('.test_slide02 .button_wrap .button_box.next .btn'),
         });
         // slick slide - E
     });

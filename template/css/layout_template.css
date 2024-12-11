@@ -33,7 +33,7 @@
 body{font-family:'notoSans','Malgun Gothic','맑은 고딕',Dotum,'돋움',Helvetica,AppleSDGothicNeo,sans-serif;color:#999;letter-spacing:-0.03em;text-align:center;background-color:#333;}
 body::-webkit-scrollbar{display:none;}
 .container{display:block;width:100%;}
-.split{display:block;width:100%;height:1px;margin:20px 0;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAABCAYAAADn9T9+AAAAAXNSR0IArs4c6QAAABhJREFUGFdj/P//fwMDFDAyMsLZMDEYDQCULgQCCfGvgwAAAABJRU5ErkJggg==);}
+.template_split{display:block;width:100%;height:1px;margin:20px 0;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAABCAYAAADn9T9+AAAAAXNSR0IArs4c6QAAABhJREFUGFdj/P//fwMDFDAyMsLZMDEYDQCULgQCCfGvgwAAAABJRU5ErkJggg==);}
 
 /* template custom */
 /* title, text */
