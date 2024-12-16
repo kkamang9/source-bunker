@@ -105,6 +105,8 @@
 .slick_wrap ~ .button_wrap .button_box.prev{left:-25px;top:50%;transform:translateY(-50%);}
 .slick_wrap ~ .button_wrap .button_box.next{right:-25px;top:50%;transform:translateY(-50%);}
 .slick_wrap ~ .button_wrap .button_box .btn{display:block;position:relative;width:50px;height:50px;border-radius:100%;border:solid 3px #fff;background-color:rgba(255, 255, 255, 0.5);pointer-events:initial;}
+.slick_wrap ~ .button_wrap .button_box .btn:before{display:block;position:absolute;left:calc(50% - 15px);top:calc(50% - 15px);width:30px;height:30px;background-image:url(../images/template/temp_slider_sprite.png);background-size:100%;content:'';}
+.slick_wrap ~ .button_wrap .button_box.prev .btn:before{transform:rotate(180deg);}
 .slick_wrap ~ .button_wrap .slick-dots{display:block;position:absolute;left:0;bottom:15px;width:100%;pointer-events:none;}
 .slick_wrap ~ .button_wrap .slick-dots li{display:inline-block;vertical-align:top;}
 .slick_wrap ~ .button_wrap .slick-dots li + li{margin-left:10px;}
@@ -112,7 +114,12 @@
 .slick_wrap ~ .button_wrap .slick-dots li.slick-active button{background-color:#f90;}
 .slick_wrap ~ .control_box{display:block;position:absolute;right:30px;bottom:-25px;padding:15px 30px;border-radius:10px;background-color:#fff;font-size:0;line-height:0;}
 .slick_wrap ~ .control_box > div{display:inline-block;margin:0 5px;vertical-align:top;}
-.slick_wrap ~ .control_box .button_box .btn{width:30px;height:30px;border-radius:100%;background-color:rgba(0, 0, 0, 0.2);}
+.slick_wrap ~ .control_box .button_box .btn{display:block;position:relative;width:30px;height:30px;border-radius:100%;background-color:rgba(0, 0, 0, 0.2);}
+.slick_wrap ~ .control_box .button_box .btn:before{display:block;position:absolute;left:calc(50% - 10px);top:calc(50% - 10px);width:20px;height:20px;background-image:url(../images/template/temp_slider_sprite.png);background-size:100%;content:'';}
+.slick_wrap ~ .control_box .button_box.prev .btn:before{transform:rotate(180deg);}
+.slick_wrap ~ .control_box .button_box.auto .btn.slick-play:before{background-position-y:-100%;}
+.slick_wrap ~ .control_box .button_box.auto .btn.slick-pause:before{background-position-y:-200%;}
+.slick_wrap ~ .control_box .button_box.more .btn:before{background-position-y:-300%;}
 .slick_wrap ~ .control_box .num_box span{display:inline-block;font-weight:400;font-size:18px;line-height:30px;vertical-align:top;}
 .slick_wrap ~ .control_box .num_box .number.total{color:#aaa;}
 .slick_wrap ~ .control_box .num_box .split{margin:0 5px;}
