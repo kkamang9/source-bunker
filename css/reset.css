@@ -13,7 +13,7 @@ b,strong{font-weight:600;}
 address,cite,dfn,em,i{font-style:normal;}
 menu,ul,ol,li,dl,dt,dd{list-style:none;}
 table{width:100%;border-collapse:collapse;border-spacing:0;}
-a,button,select,label,[type=button],[type=reset],[type=submit]{overflow:visible;border-color:transparent;background-color:transparent;text-transform:none;cursor:pointer;}
+a,button,select,label,[type=button],[type=reset],[type=submit]{overflow:visible;border-color:transparent;background-color:transparent;text-decoration:none;text-transform:none;cursor:pointer;}
 a:hover,button:hover,select:hover,label:hover,[type=button]:hover,[type=reset]:hover,[type=submit]:hover{text-decoration:none;}
 fieldset{min-width:0}
 input[type=checkbox],input[type=radio]{padding:0;border:none;}

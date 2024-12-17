@@ -2416,16 +2416,17 @@ $tabWrap.each(function(){
                             <p>작업 대기중...</p>
                         </div>
                         <div class="content_item">
-                            <h3>슬릭 기본값</h3>
-                            <p>슬릭 기본 css, 주로 사용되는 속성 script</p>
+                            <h3>슬릭 전체복사</h3>
+                            <p>아래의 basic 포함 모든 예시의 스타일, 주로 사용되는 속성 script</p>
                             <p>$(element) 부분 변경해서 사용(slick script 는 템플릿화 X 개별 사용 권장)</p>
                             <div class="button_wrap">
                                 <div class="copy_box">
-                                    <button class="copy css"><span><em>basic css</em></span></button>
+                                    <button class="copy css"><span><em>css all</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-/* slick common - S */
+/* slick slide - S */
+/* slick basic common - S */
 .slick-slider{position:relative;display:block;box-sizing:border-box;}
-.slick-list{position:relative;display:block;overflow:hidden;margin:0;padding:0;}
+.slick-list{position:relative;display:block;overflow:hidden;margin:0;padding:0;box-sizing:border-box;}
 .slick-list:focus{outline:none;}
 .slick-list.dragging{cursor:pointer;}
 .slick-track{ position:relative;top:0;left:0;display:block;}
@@ -2440,7 +2441,54 @@ $tabWrap.each(function(){
 .slick-loading .slick-slide{visibility:hidden;}
 .slick-vertical .slick-slide{display:block;height:auto;border:1px solid transparent;}
 #scrollbar{display:block;visibility:hidden;overflow-x:scroll;overflow-y:scroll;position:absolute;top:-100px;left:-100px;z-index:-1;width:100px;height:100px;}
-/* slick common - E */
+/* slick basic common - E */
+/* slick common */
+.slick_wrap{display:block;overflow:hidden;width:100%;}
+.slick_wrap .slick-slider{font-size:0;line-height:0;}
+.slick_wrap .slick-slider .slick-slide .link{display:block;position:relative;width:100%;text-decoration:none;}
+.slick_wrap .slick-slider .slick-slide .link .img_box{display:block;position:relative;width:100%;height:auto;}
+.slick_wrap .slick-slider .slick-slide .link .img_box .fake_img{display:block;position:absolute;left:0;top:0;width:100%;height:100%;background-size:cover;background-position:center center;background-repeat:no-repeat;}
+.slick_wrap .slick-slider .slick-slide .link .text_box{display:block;padding:15px;box-sizing:border-box;}
+.slick_wrap .slick-slider .slick-slide .link .text_box .title{display:block;width:100%;}
+.slick_wrap .slick-slider .slick-slide .link .text_box .desc{display:block;width:100%;}
+.slick_wrap ~ .button_wrap{display:block;width:100%;height:0;padding:0;font-size:0;line-height:0;text-align:center;}
+.slick_wrap ~ .button_wrap .button_box{display:block;position:absolute;}
+.slick_wrap ~ .button_wrap .button_box.prev{left:-25px;top:50%;transform:translateY(-50%);}
+.slick_wrap ~ .button_wrap .button_box.next{right:-25px;top:50%;transform:translateY(-50%);}
+.slick_wrap ~ .button_wrap .button_box .btn{display:block;position:relative;width:50px;height:50px;border-radius:100%;border:solid 3px #fff;background-color:rgba(255, 255, 255, 0.5);pointer-events:initial;}
+.slick_wrap ~ .button_wrap .button_box .btn:before{display:block;position:absolute;left:calc(50% - 15px);top:calc(50% - 15px);width:30px;height:30px;background-image:url(../images/template/temp_slider_icon_sprite.png);background-size:100%;content:'';}
+.slick_wrap ~ .button_wrap .button_box.prev .btn:before{transform:rotate(180deg);}
+.slick_wrap ~ .button_wrap .slick-dots{display:block;position:absolute;left:0;bottom:15px;width:100%;pointer-events:none;}
+.slick_wrap ~ .button_wrap .slick-dots li{display:inline-block;vertical-align:top;}
+.slick_wrap ~ .button_wrap .slick-dots li + li{margin-left:10px;}
+.slick_wrap ~ .button_wrap .slick-dots li button{display:block;width:8px;height:8px;border-radius:100%;background-color:rgba(0, 0, 0, 0.2);transition-property:background-color;transition-duration:0.3s;pointer-events:initial;}
+.slick_wrap ~ .button_wrap .slick-dots li.slick-active button{background-color:#f90;}
+.slick_wrap ~ .control_box{display:block;position:absolute;right:30px;bottom:-25px;padding:15px 30px;border-radius:10px;background-color:#fff;font-size:0;line-height:0;}
+.slick_wrap ~ .control_box > div{display:inline-block;margin:0 5px;vertical-align:top;}
+.slick_wrap ~ .control_box .button_box .btn{display:block;position:relative;width:30px;height:30px;border-radius:100%;background-color:rgba(0, 0, 0, 0.2);}
+.slick_wrap ~ .control_box .button_box .btn:before{display:block;position:absolute;left:calc(50% - 10px);top:calc(50% - 10px);width:20px;height:20px;background-image:url(../images/template/temp_slider_icon_sprite.png);background-size:100%;content:'';}
+.slick_wrap ~ .control_box .button_box.prev .btn:before{transform:rotate(180deg);}
+.slick_wrap ~ .control_box .button_box.auto .btn.slick-play:before{background-position-y:-100%;}
+.slick_wrap ~ .control_box .button_box.auto .btn.slick-pause:before{background-position-y:-200%;}
+.slick_wrap ~ .control_box .button_box.more .btn:before{background-position-y:-300%;}
+.slick_wrap ~ .control_box .num_box span{display:inline-block;font-weight:400;font-size:18px;line-height:30px;vertical-align:top;}
+.slick_wrap ~ .control_box .num_box .number.total{color:#aaa;}
+.slick_wrap ~ .control_box .num_box .split{margin:0 5px;}
+/* slick full */
+.slick_full{position:relative;margin-top:20px;}
+.slick_full .slick-list .link .img_box{padding-top:20%;}
+.slick_full .slick-list .link .text_box{position:absolute;left:0;top:50%;width:100%;transform:translateY(-50%);}
+.slick_full .slick-list .link .text_box .title{font-weight:600;font-size:32px;line-height:38px;color:#000;}
+.slick_full .slick-list .link .text_box .desc{font-weight:400;font-size:20px;line-height:26px;color:#333;}
+/* slick list */
+.slick_list{position:relative;margin-top:20px;}
+.slick_list .slick-list{margin:0 -20px;}
+.slick_list .slick-list .slick-slide{margin:0 20px;}
+.slick_list .slick-list .slick-slide .slick-rows > div{box-sizing:border-box;}
+.slick_list .slick-list .slick-slide .slick-rows > div .link .img_box{padding-top:50%;}
+.slick_list .slick-list .slick-slide .slick-rows > div .link .text_box .title{font-weight:600;font-size:24px;line-height:30px;color:#ddd;}
+.slick_list .slick-list .slick-slide .slick-rows > div .link .text_box .desc{font-weight:400;font-size:18px;line-height:24px;color:#999;}
+/* slick slide - E */
 </textarea>
                                 </div>
                                 <div class="copy_box">
@@ -2502,16 +2550,15 @@ $element.slick({
                                 </div>
                             </div>
                             <i class="template_split"></i>
-                            <h3>슬릭 전체복사</h3>
-                            <p>위 basic 포함, 아래의 모든 예시의 스타일 복사</p>
+                            <h3>슬릭 기본값</h3>
+                            <p>슬릭 기본 css, 커스텀 스타일의 common css</p>
                             <div class="button_wrap">
                                 <div class="copy_box">
-                                    <button class="copy css"><span><em>css all</em></span></button>
+                                    <button class="copy css"><span><em>basic css</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-/* slick slide - S */
-/* slick basic common - S */
+/* slick common - S */
 .slick-slider{position:relative;display:block;box-sizing:border-box;}
-.slick-list{position:relative;display:block;overflow:hidden;margin:0;padding:0;box-sizing:border-box;}
+.slick-list{position:relative;display:block;overflow:hidden;margin:0;padding:0;}
 .slick-list:focus{outline:none;}
 .slick-list.dragging{cursor:pointer;}
 .slick-track{ position:relative;top:0;left:0;display:block;}
@@ -2526,47 +2573,7 @@ $element.slick({
 .slick-loading .slick-slide{visibility:hidden;}
 .slick-vertical .slick-slide{display:block;height:auto;border:1px solid transparent;}
 #scrollbar{display:block;visibility:hidden;overflow-x:scroll;overflow-y:scroll;position:absolute;top:-100px;left:-100px;z-index:-1;width:100px;height:100px;}
-/* slick basic common - E */
-/* slick common */
-.slick_wrap{display:block;overflow:hidden;width:100%;}
-.slick_wrap .slick-slider{font-size:0;line-height:0;}
-.slick_wrap .slick-slider .slick-slide .link{display:block;position:relative;width:100%;text-decoration:none;}
-.slick_wrap .slick-slider .slick-slide .link .img_box{display:block;position:relative;width:100%;height:auto;}
-.slick_wrap .slick-slider .slick-slide .link .img_box .fake_img{display:block;position:absolute;left:0;top:0;width:100%;height:100%;background-size:cover;background-position:center center;background-repeat:no-repeat;}
-.slick_wrap .slick-slider .slick-slide .link .text_box{display:block;padding:15px;box-sizing:border-box;}
-.slick_wrap .slick-slider .slick-slide .link .text_box .title{display:block;width:100%;}
-.slick_wrap .slick-slider .slick-slide .link .text_box .desc{display:block;width:100%;}
-.slick_wrap ~ .button_wrap{display:block;width:100%;height:0;padding:0;font-size:0;line-height:0;text-align:center;}
-.slick_wrap ~ .button_wrap .button_box{display:block;position:absolute;}
-.slick_wrap ~ .button_wrap .button_box.prev{left:-25px;top:50%;transform:translateY(-50%);}
-.slick_wrap ~ .button_wrap .button_box.next{right:-25px;top:50%;transform:translateY(-50%);}
-.slick_wrap ~ .button_wrap .button_box .btn{display:block;position:relative;width:50px;height:50px;border-radius:100%;border:solid 3px #fff;background-color:rgba(255, 255, 255, 0.5);pointer-events:initial;}
-.slick_wrap ~ .button_wrap .slick-dots{display:block;position:absolute;left:0;bottom:15px;width:100%;pointer-events:none;}
-.slick_wrap ~ .button_wrap .slick-dots li{display:inline-block;vertical-align:top;}
-.slick_wrap ~ .button_wrap .slick-dots li + li{margin-left:10px;}
-.slick_wrap ~ .button_wrap .slick-dots li button{display:block;width:8px;height:8px;border-radius:100%;background-color:rgba(0, 0, 0, 0.2);transition-property:background-color;transition-duration:0.3s;pointer-events:initial;}
-.slick_wrap ~ .button_wrap .slick-dots li.slick-active button{background-color:#f90;}
-.slick_wrap ~ .control_box{display:block;position:absolute;right:30px;bottom:-25px;padding:15px 30px;border-radius:10px;background-color:#fff;font-size:0;line-height:0;}
-.slick_wrap ~ .control_box > div{display:inline-block;margin:0 5px;vertical-align:top;}
-.slick_wrap ~ .control_box .button_box .btn{width:30px;height:30px;border-radius:100%;background-color:rgba(0, 0, 0, 0.2);}
-.slick_wrap ~ .control_box .num_box span{display:inline-block;font-weight:400;font-size:18px;line-height:30px;vertical-align:top;}
-.slick_wrap ~ .control_box .num_box .number.total{color:#aaa;}
-.slick_wrap ~ .control_box .num_box .split{margin:0 5px;}
-/* slick full */
-.slick_full{position:relative;margin-top:20px;}
-.slick_full .slick-list .link .img_box{padding-top:20%;}
-.slick_full .slick-list .link .text_box{position:absolute;left:0;top:50%;width:100%;transform:translateY(-50%);}
-.slick_full .slick-list .link .text_box .title{font-weight:600;font-size:32px;line-height:38px;color:#000;}
-.slick_full .slick-list .link .text_box .desc{font-weight:400;font-size:20px;line-height:26px;color:#333;}
-/* slick list */
-.slick_list{position:relative;margin-top:20px;}
-.slick_list .slick-list{margin:0 -20px;}
-.slick_list .slick-list .slick-slide{margin:0 20px;}
-.slick_list .slick-list .slick-slide .slick-rows > div{box-sizing:border-box;}
-.slick_list .slick-list .slick-slide .slick-rows > div .link .img_box{padding-top:50%;}
-.slick_list .slick-list .slick-slide .slick-rows > div .link .text_box .title{font-weight:600;font-size:24px;line-height:30px;color:#ddd;}
-.slick_list .slick-list .slick-slide .slick-rows > div .link .text_box .desc{font-weight:400;font-size:18px;line-height:24px;color:#999;}
-/* slick slide - E */
+/* slick common - E */
 </textarea>
                                 </div>
                             </div>
@@ -2641,6 +2648,8 @@ $element.slick({
 .slick_wrap ~ .button_wrap .button_box.prev{left:-25px;top:50%;transform:translateY(-50%);}
 .slick_wrap ~ .button_wrap .button_box.next{right:-25px;top:50%;transform:translateY(-50%);}
 .slick_wrap ~ .button_wrap .button_box .btn{display:block;position:relative;width:50px;height:50px;border-radius:100%;border:solid 3px #fff;background-color:rgba(255, 255, 255, 0.5);pointer-events:initial;}
+.slick_wrap ~ .button_wrap .button_box .btn:before{display:block;position:absolute;left:calc(50% - 15px);top:calc(50% - 15px);width:30px;height:30px;background-image:url(../images/template/temp_slider_icon_sprite.png);background-size:100%;content:'';}
+.slick_wrap ~ .button_wrap .button_box.prev .btn:before{transform:rotate(180deg);}
 .slick_wrap ~ .button_wrap .slick-dots{display:block;position:absolute;left:0;bottom:15px;width:100%;pointer-events:none;}
 .slick_wrap ~ .button_wrap .slick-dots li{display:inline-block;vertical-align:top;}
 .slick_wrap ~ .button_wrap .slick-dots li + li{margin-left:10px;}
@@ -2648,7 +2657,12 @@ $element.slick({
 .slick_wrap ~ .button_wrap .slick-dots li.slick-active button{background-color:#f90;}
 .slick_wrap ~ .control_box{display:block;position:absolute;right:30px;bottom:-25px;padding:15px 30px;border-radius:10px;background-color:#fff;font-size:0;line-height:0;}
 .slick_wrap ~ .control_box > div{display:inline-block;margin:0 5px;vertical-align:top;}
-.slick_wrap ~ .control_box .button_box .btn{width:30px;height:30px;border-radius:100%;background-color:rgba(0, 0, 0, 0.2);}
+.slick_wrap ~ .control_box .button_box .btn{display:block;position:relative;width:30px;height:30px;border-radius:100%;background-color:rgba(0, 0, 0, 0.2);}
+.slick_wrap ~ .control_box .button_box .btn:before{display:block;position:absolute;left:calc(50% - 10px);top:calc(50% - 10px);width:20px;height:20px;background-image:url(../images/template/temp_slider_icon_sprite.png);background-size:100%;content:'';}
+.slick_wrap ~ .control_box .button_box.prev .btn:before{transform:rotate(180deg);}
+.slick_wrap ~ .control_box .button_box.auto .btn.slick-play:before{background-position-y:-100%;}
+.slick_wrap ~ .control_box .button_box.auto .btn.slick-pause:before{background-position-y:-200%;}
+.slick_wrap ~ .control_box .button_box.more .btn:before{background-position-y:-300%;}
 .slick_wrap ~ .control_box .num_box span{display:inline-block;font-weight:400;font-size:18px;line-height:30px;vertical-align:top;}
 .slick_wrap ~ .control_box .num_box .number.total{color:#aaa;}
 .slick_wrap ~ .control_box .num_box .split{margin:0 5px;}
@@ -3104,7 +3118,7 @@ span.warning{display:inline-block;vertical-align:top;}
 .warning.type2{color:#e13c3c;}
 .warning.type3{color:#489d7f;}
 .warning.type4{color:#d09d9d;}
-.warning:before{display:block;position:absolute;left:0;top:0;width:30px;height:30px;background-image:url(../images/template/temp_warning_sprite.png);background-size:100%;content:'';}
+.warning:before{display:block;position:absolute;left:0;top:0;width:30px;height:30px;background-image:url(../images/template/temp_warning_icon_sprite.png);background-size:100%;content:'';}
 .warning.type2:before{background-position-y:-100%;}
 .warning.type3:before{background-position-y:-200%;}
 .warning.type4:before{background-position-y:-300%;}
@@ -3614,121 +3628,350 @@ $('table.table.responsive').not($('.prettyprint').children()).each(function () {
                             </div>
                         </div>
                         <div class="content_item">
+                            <h3>본문 내 링크 / 다운로드</h3>
+                            <div class="button_wrap">
+                                <div class="copy_box">
+                                    <button class="copy html"><span><em>html</em></span></button>
+<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+<a href="" target="_blank" title="새창으로 열기" rel="noopener noreferrer" class="text_link"></a>
+<a href="" target="_blank" title="다운로드" rel="noopener noreferrer" class="text_down"></a>
+</textarea>
+                                </div>
+                                <div class="copy_box">
+                                    <button class="copy css"><span><em>css</em></span></button>
+<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+/* 본문 내 링크, 다운로드 */
+.text_link, .text_down{display:inline;font-weight:inherit;font-size:inherit;line-height:inherit;color:inherit;letter-spacing:-0.03em;text-decoration:underline;}
+.text_link:after, .text_down:after{display:inline-block;width:20px;height:20px;margin-top:3px;margin-left:5px;background-image:url(../images/template/temp_button_icon_sprite.png);background-size:200%;font-size:0;line-height:inherit;vertical-align:top;content:'';}
+.text_down:after{background-position-y:-100%;}
+@media all and (min-width:1001px){
+    .text_link:hover, .text_down:hover{color:#007ae1;}
+    .text_link:hover:after, .text_down:hover:after{background-position-x:-100%;}
+}
+</textarea>
+                                </div>
+                            </div>
+                            <p>
+                                <a href="" target="_blank" title="새창으로 열기" rel="noopener noreferrer" class="text_link">https://link.co.kr</a>
+                                <a href="" target="_blank" title="다운로드" rel="noopener noreferrer" class="text_down">파일 다운로드</a>
+                            </p>
+                            <i class="template_split"></i>
                             <h3>버튼</h3>
-                            <h4>기본 버튼</h4>
-                            <p>기본사이즈 / .medium / .small</p>
                             <div class="button_wrap">
                                 <div class="copy_box">
                                     <button class="copy html"><span><em>html</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+<h4>버튼 사이즈</h4>
+<p>.temp_btn / .temp_btn.medium / .temp_btn.small</p>
+<div class="button_wrap">
+    <div class="temp_btn">
+        <button type="button" title="버튼 타이틀" class="btn">
+            <span>basic</span>
+        </button>
+    </div>
+    <div class="temp_btn medium">
+        <button type="button" title="버튼 타이틀" class="btn">
+            <span>medium</span>
+        </button>
+    </div>
+    <div class="temp_btn small">
+        <button type="button" title="버튼 타이틀" class="btn">
+            <span>small</span>
+        </button>
+    </div>
+</div>
+<h4>버튼 컬러</h4>
+<p>.temp_btn / .temp_btn.type2 / .temp_btn.type3</p>
+<p>.temp_btn.reverse / .temp_btn.type2.reverse / .temp_btn.type3.reverse</p>
+<div class="button_wrap">
+    <div class="temp_btn medium">
+        <button type="button" title="버튼 타이틀" class="btn">
+            <span>type1</span>
+        </button>
+    </div>
+    <div class="temp_btn medium type2">
+        <button type="button" title="버튼 타이틀" class="btn">
+            <span>type2</span>
+        </button>
+    </div>
+    <div class="temp_btn medium type3">
+        <button type="button" title="버튼 타이틀" class="btn">
+            <span>type3</span>
+        </button>
+    </div>
+</div>
+<div class="button_wrap">
+    <div class="temp_btn medium reverse">
+        <button type="button" title="버튼 타이틀" class="btn">
+            <span>type1</span>
+        </button>
+    </div>
+    <div class="temp_btn medium type2 reverse">
+        <button type="button" title="버튼 타이틀" class="btn">
+            <span>type2</span>
+        </button>
+    </div>
+    <div class="temp_btn medium type3 reverse">
+        <button type="button" title="버튼 타이틀" class="btn">
+            <span>type3</span>
+        </button>
+    </div>
+</div>
+<h4>버튼 태그</h4>
+<p>button / a / input + label</p>
+<div class="button_wrap">
+    <div class="temp_btn medium">
+        <button type="button" title="버튼 타이틀" class="btn">
+            <span>button</span>
+        </button>
+    </div>
+    <div class="temp_btn medium">
+        <a href="" target="_blank" title="버튼 타이틀" rel="noopener noreferrer" class="btn">
+            <span>a</span>
+        </a>
+    </div>
+    <div class="temp_btn medium">
+        <input type="button" id="test01"/>
+        <label for="test01" class="btn">
+            <span>input label</span>
+        </label>
+    </div>
+</div>
+<h4>아이콘 버튼</h4>
+<p>.temp_btn.type_icon</p>
+<div class="button_wrap">
+    <div class="temp_btn type_icon">
+        <button type="button" title="버튼 타이틀" class="btn">
+            <i class="icon blank"></i>
+            <span>icon blank</span>
+        </button>
+    </div>
+    <div class="temp_btn type_icon medium">
+        <button type="button" title="버튼 타이틀" class="btn">
+            <i class="icon down"></i>
+            <span>icon down</span>
+        </button>
+    </div>
+    <div class="temp_btn type_icon small">
+        <button type="button" title="버튼 타이틀" class="btn">
+            <i class="icon search"></i>
+            <span>icon search</span>
+        </button>
+    </div>
+</div>
+<div class="button_wrap">
+    <div class="temp_btn type_icon medium">
+        <button type="button" title="버튼 타이틀" class="btn">
+            <i class="icon blank"></i>
+            <span>button icon</span>
+        </button>
+    </div>
+    <div class="temp_btn type_icon medium">
+        <a href="" target="_blank" title="버튼 타이틀" rel="noopener noreferrer" class="btn">
+            <i class="icon down"></i>
+            <span>a icon</span>
+        </a>
+    </div>
+    <div class="temp_btn type_icon medium">
+        <input type="button" id="test02"/>
+        <label for="test02" class="btn">
+            <i class="icon search"></i>
+            <span>input label icon</span>
+        </label>
+    </div>
+</div>
 </textarea>
                                 </div>
                                 <div class="copy_box">
                                     <button class="copy css"><span><em>css</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-</textarea>
-                                </div>
-                                <div class="copy_box">
-                                    <button class="copy javascript"><span><em>javascript</em></span></button>
-<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+/* 버튼 */
+.button_wrap{display:block;width:100%;font-size:0;line-height:0;}
+.button_wrap + .button_wrap{margin-top:15px;}
+.button_wrap .temp_btn + .temp_btn{margin-left:20px;}
+.temp_btn{display:inline-block;position:relative;width:auto;vertical-align:top;}
+.temp_btn input{display:block;position:absolute;left:10px;top:10px;width:0;height:0;border:none;background-color:transparent;font-size:0;line-height:0;color:transparent;}
+.temp_btn .btn{display:block;position:relative;min-width:200px;width:auto;height:60px;padding:0 20px;border-radius:10px;border:solid 1px #08d;background-color:#08d;text-align:center;transition-property:border, background-color;transition-duration:0.3s;box-sizing:border-box;}
+.temp_btn .btn span{display:block;position:relative;font-weight:400;font-size:16px;line-height:26px;color:#fff;transition-property:color;transition-duration:0.3s;}
+.temp_btn a.btn span, .temp_btn label.btn span{top:50%;transform:translateY(-50%);}
+/* 버튼 사이즈 */
+.temp_btn.medium .btn{min-width:140px;height:48px;}
+.temp_btn.small .btn{min-width:100px;height:40px;padding:0 15px;}
+.temp_btn.medium .btn span{line-height:24px;}
+.temp_btn.small .btn span{font-size:15px;line-height:22px;}
+/* 버튼 컬러 */
+.temp_btn.type2 .btn{border-color:#059;background-color:#059;}
+.temp_btn.type3 .btn{border-color:#aaa;background-color:#fff;}
+.temp_btn.reverse .btn{background-color:#fff;}
+.temp_btn.type2.reverse .btn{border-color:#333;background-color:#fff;}
+.temp_btn.type3.reverse .btn{border-color:#ddd;background-color:#ddd;}
+.temp_btn.type2 .btn span{color:#fff;}
+.temp_btn.type3 .btn span{color:#222;}
+.temp_btn.reverse .btn span{color:#08d;}
+.temp_btn.type2.reverse .btn span{color:#059;}
+.temp_btn.type3.reverse .btn span{color:#666;}
+/* 아이콘 버튼 */
+.temp_btn.type_icon .btn{padding-right:45px;border-color:#08d;background-color:#08d;text-align:left;}
+.temp_btn.type_icon.reverse .btn{background-color:#fff;}
+.temp_btn.type_icon .btn .icon{display:block;position:absolute;right:20px;top:50%;z-index:1;width:20px;height:20px;transform:translateY(-50%);pointer-events:none;}
+.temp_btn.type_icon .btn .icon:before, .temp_btn .btn .icon:after{display:block;position:absolute;left:0;top:0;width:100%;height:100%;background-image:url(../images/template/temp_button_icon_sprite.png);background-size:200%;transition-property:opacity;transition-duration:0.3s;content:'';}
+.temp_btn.type_icon .btn .icon:before{opacity:1;}
+.temp_btn.type_icon .btn .icon:after{opacity:0;background-position-x:-100%;}
+.temp_btn.type_icon .btn .icon.blank:before, .temp_btn.type_icon .btn .icon.blank:after{background-position-y:0;}
+.temp_btn.type_icon .btn .icon.down:before, .temp_btn.type_icon .btn .icon.down:after{background-position-y:-100%;}
+.temp_btn.type_icon .btn .icon.search:before, .temp_btn.type_icon .btn .icon.search:after{background-position-y:-200%;}
+.temp_btn.type_icon .btn span{color:#fff;}
+.temp_btn.type_icon.reverse .btn span{color:#08d;}
+/* focus effect */
+.temp_btn .btn:focus, .temp_btn input:focus + .btn{outline:2px dotted #000;}
+@media all and (min-width:1001px){
+    .temp_btn .btn:hover{background-color:#fff;text-decoration:none;cursor:pointer;}
+    .temp_btn .btn:hover span{color:#08d;}
+    /* 버튼 컬러 */
+    .temp_btn.type2 .btn:hover{border-color:#333;background-color:#fff;}
+    .temp_btn.type3 .btn:hover{border-color:#ddd;background-color:#ddd;}
+    .temp_btn.reverse .btn:hover{background-color:#08d;}
+    .temp_btn.type2.reverse .btn:hover{border-color:#059;background-color:#059;}
+    .temp_btn.type3.reverse .btn:hover{border-color:#aaa;background-color:#fff;}
+    .temp_btn.type2 .btn:hover span{color:#059;}
+    .temp_btn.type3 .btn:hover span{color:#666;}
+    .temp_btn.reverse .btn:hover span{color:#fff;}
+    .temp_btn.type2.reverse .btn:hover span{color:#fff;}
+    .temp_btn.type3.reverse .btn:hover span{color:#222;}
+    /* 아이콘 버튼 */
+    .temp_btn.type_icon .btn:hover{background-color:#fff;}
+    .temp_btn.type_icon.reverse .btn:hover{background-color:#08d;}
+    .temp_btn.type_icon .btn:hover .icon:before, .temp_btn .btn:hover .icon:after{background-position-x:-100%;}
+    .temp_btn.type_icon .btn:hover .icon:before{opacity:0;}
+    .temp_btn.type_icon .btn:hover .icon:after{opacity:1;}
+    .temp_btn.type_icon .btn:hover span{color:#08d;}
+    .temp_btn.type_icon.reverse .btn:hover span{color:#fff;}
+}
 </textarea>
                                 </div>
                             </div>
-                            <h5>button.btn</h5>
+                            <h4>버튼 사이즈</h4>
+                            <p>.temp_btn / .temp_btn.medium / .temp_btn.small</p>
                             <div class="button_wrap">
                                 <div class="temp_btn">
-                                    <button type="button" title="바로가기" class="btn">
-                                        <span>바로가기</span>
+                                    <button type="button" title="버튼 타이틀" class="btn">
+                                        <span>basic</span>
                                     </button>
                                 </div>
                                 <div class="temp_btn medium">
-                                    <button type="button" title="다운로드" class="btn">
-                                        <span>다운로드</span>
+                                    <button type="button" title="버튼 타이틀" class="btn">
+                                        <span>medium</span>
                                     </button>
                                 </div>
                                 <div class="temp_btn small">
-                                    <button type="button" title="미리보기" class="btn">
-                                        <span>미리보기</span>
+                                    <button type="button" title="버튼 타이틀" class="btn">
+                                        <span>small</span>
                                     </button>
                                 </div>
                             </div>
-                            <h5>a.btn</h5>
+                            <h4>버튼 컬러</h4>
+                            <p>.temp_btn / .temp_btn.type2 / .temp_btn.type3</p>
+                            <p>.temp_btn.reverse / .temp_btn.type2.reverse / .temp_btn.type3.reverse</p>
                             <div class="button_wrap">
-                                <div class="temp_btn">
-                                    <a href="" class="btn">
-                                        <span>바로가기</span>
+                                <div class="temp_btn medium">
+                                    <button type="button" title="버튼 타이틀" class="btn">
+                                        <span>type1</span>
+                                    </button>
+                                </div>
+                                <div class="temp_btn medium type2">
+                                    <button type="button" title="버튼 타이틀" class="btn">
+                                        <span>type2</span>
+                                    </button>
+                                </div>
+                                <div class="temp_btn medium type3">
+                                    <button type="button" title="버튼 타이틀" class="btn">
+                                        <span>type3</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="button_wrap">
+                                <div class="temp_btn medium reverse">
+                                    <button type="button" title="버튼 타이틀" class="btn">
+                                        <span>type1</span>
+                                    </button>
+                                </div>
+                                <div class="temp_btn medium type2 reverse">
+                                    <button type="button" title="버튼 타이틀" class="btn">
+                                        <span>type2</span>
+                                    </button>
+                                </div>
+                                <div class="temp_btn medium type3 reverse">
+                                    <button type="button" title="버튼 타이틀" class="btn">
+                                        <span>type3</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <h4>버튼 태그</h4>
+                            <p>button / a / input + label</p>
+                            <div class="button_wrap">
+                                <div class="temp_btn medium">
+                                    <button type="button" title="버튼 타이틀" class="btn">
+                                        <span>button</span>
+                                    </button>
+                                </div>
+                                <div class="temp_btn medium">
+                                    <a href="" target="_blank" title="버튼 타이틀" rel="noopener noreferrer" class="btn">
+                                        <span>a</span>
                                     </a>
                                 </div>
                                 <div class="temp_btn medium">
-                                    <a href="" target="_blank" title="다운로드" rel="noopener noreferrer" class="btn">
-                                        <span>다운로드</span>
-                                    </a>
-                                </div>
-                                <div class="temp_btn small">
-                                    <a href="" target="_blank" title="새창으로 미리보기" rel="noopener noreferrer" class="btn">
-                                        <span>미리보기</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <h5>input.btn</h5>
-                            <div class="button_wrap">
-                                <div class="temp_btn">
-                                    <input type="button" id="test01" class="skip_input"/>
+                                    <input type="button" id="test01"/>
                                     <label for="test01" class="btn">
-                                        <span>바로가기</span>
+                                        <span>input label</span>
                                     </label>
                                 </div>
-                                <div class="temp_btn medium">
-                                    <input type="button" id="test02" class="skip_input"/>
+                            </div>
+                            <h4>아이콘 버튼</h4>
+                            <p>.temp_btn.type_icon</p>
+                            <div class="button_wrap">
+                                <div class="temp_btn type_icon">
+                                    <button type="button" title="버튼 타이틀" class="btn">
+                                        <i class="icon blank"></i>
+                                        <span>icon blank</span>
+                                    </button>
+                                </div>
+                                <div class="temp_btn type_icon medium">
+                                    <button type="button" title="버튼 타이틀" class="btn">
+                                        <i class="icon down"></i>
+                                        <span>icon down</span>
+                                    </button>
+                                </div>
+                                <div class="temp_btn type_icon small">
+                                    <button type="button" title="버튼 타이틀" class="btn">
+                                        <i class="icon search"></i>
+                                        <span>icon search</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="button_wrap">
+                                <div class="temp_btn type_icon medium">
+                                    <button type="button" title="버튼 타이틀" class="btn">
+                                        <i class="icon blank"></i>
+                                        <span>button icon</span>
+                                    </button>
+                                </div>
+                                <div class="temp_btn type_icon medium">
+                                    <a href="" target="_blank" title="버튼 타이틀" rel="noopener noreferrer" class="btn">
+                                        <i class="icon down"></i>
+                                        <span>a icon</span>
+                                    </a>
+                                </div>
+                                <div class="temp_btn type_icon medium">
+                                    <input type="button" id="test02"/>
                                     <label for="test02" class="btn">
-                                        <span>다운로드</span>
+                                        <i class="icon search"></i>
+                                        <span>input label icon</span>
                                     </label>
-                                </div>
-                                <div class="temp_btn small">
-                                    <input type="button" id="test03" class="skip_input"/>
-                                    <label for="test03" class="btn">
-                                        <span>미리보기</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <i class="template_split"></i>
-                            <div class="button_wrap">
-                                <div class="copy_box">
-                                    <button class="copy html"><span><em>html</em></span></button>
-<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-</textarea>
-                                </div>
-                                <div class="copy_box">
-                                    <button class="copy css"><span><em>css</em></span></button>
-<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-</textarea>
-                                </div>
-                                <div class="copy_box">
-                                    <button class="copy javascript"><span><em>javascript</em></span></button>
-<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-</textarea>
-                                </div>
-                            </div>
-                            <i class="template_split"></i>
-                            <div class="button_wrap">
-                                <div class="copy_box">
-                                    <button class="copy html"><span><em>html</em></span></button>
-<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-</textarea>
-                                </div>
-                                <div class="copy_box">
-                                    <button class="copy css"><span><em>css</em></span></button>
-<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-</textarea>
-                                </div>
-                                <div class="copy_box">
-                                    <button class="copy javascript"><span><em>javascript</em></span></button>
-<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
-</textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="content_item">
+                            <h3>폼 요소 전체 복사</h3>
                             <div class="button_wrap">
                                 <div class="copy_box">
                                     <button class="copy html"><span><em>html</em></span></button>
@@ -3742,6 +3985,33 @@ $('table.table.responsive').not($('.prettyprint').children()).each(function () {
                                 </div>
                                 <div class="copy_box">
                                     <button class="copy javascript"><span><em>javascript</em></span></button>
+<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+</textarea>
+                                </div>
+                            </div>
+                            <i class="template_split"></i>
+                            <h3>폼요소 부분 복사</h3>
+                            <h4>인풋 텍스트</h4>
+                            <div class="button_wrap">
+                                <div class="copy_box">
+                                    <button class="copy html"><span><em>html</em></span></button>
+<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+</textarea>
+                                </div>
+                            </div>
+                            <i class="template_split"></i>
+                            <h4>인풋 셀렉트</h4>
+                            <div class="button_wrap">
+                                <div class="copy_box">
+                                    <button class="copy html"><span><em>html</em></span></button>
+<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+</textarea>
+                                </div>
+                            </div>
+                            <i class="template_split"></i>
+                            <div class="button_wrap">
+                                <div class="copy_box">
+                                    <button class="copy html"><span><em>html</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
 </textarea>
                                 </div>
