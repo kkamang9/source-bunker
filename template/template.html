@@ -3972,6 +3972,7 @@ $('table.table.responsive').not($('.prettyprint').children()).each(function () {
                         </div>
                         <div class="content_item">
                             <h3>폼 요소 전체 복사</h3>
+                            <p>프로그램 템플릿 제외한 전체</p>
                             <div class="button_wrap">
                                 <div class="copy_box">
                                     <button class="copy html"><span><em>html</em></span></button>
@@ -3984,8 +3985,36 @@ $('table.table.responsive').not($('.prettyprint').children()).each(function () {
 </textarea>
                                 </div>
                                 <div class="copy_box">
-                                    <button class="copy javascript"><span><em>javascript</em></span></button>
+                                    <button class="copy javascript"><span><em>fake select script</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+// 가짜 셀렉트 박스
+$('.temp_form .fake_select').each(function(){
+    var $this = $(this),
+        $fakeOptions = $this.next('.fake_options'),
+        $fakeOption = $fakeOptions.find('.fake_option'),
+        $fakeOptionBtn = $fakeOption.find('.btn');
+    $this.outerWidth($fakeOptions.outerWidth());
+    if($fakeOption.is('.selected')){
+        var $fakeSelected = $fakeOptions.find('.fake_option.selected'),
+            $selectedText = $fakeSelected.find('.btn').text();
+        $this.find('span').text($selectedText);
+    }
+    $this.removeClass('active').attr('title','하위 메뉴 열기').next().stop().slideUp();
+    $this.not(':disabled').on('click',function(){
+        if($this.is('.active') === true){
+            $this.removeClass('active').attr('title','하위 메뉴 열기').next().stop().slideUp();
+        }else if($this.is('.active') === false){
+            $this.addClass('active').attr('title','하위 메뉴 닫기').next().stop().slideDown();
+        }
+    });
+    $fakeOptionBtn.on('click',function(){
+        var $thisBtn = $(this),
+            $selectedText = $thisBtn.text();
+        $thisBtn.parent().addClass('selected').siblings().removeClass('selected');
+        $this.removeClass('active').attr('title','하위 메뉴 열기').next().stop().slideUp();
+        $this.find('span').text($selectedText);
+    });
+});
 </textarea>
                                 </div>
                             </div>
@@ -3996,7 +4025,29 @@ $('table.table.responsive').not($('.prettyprint').children()).each(function () {
                                 <div class="copy_box">
                                     <button class="copy html"><span><em>html</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+<div class="form_wrap">
+    <div class="temp_form">
+        <input type="text" id="" title="텍스트 입력" placeholder="인풋 텍스트" class="temp_input"/>
+    </div>
+    <div class="temp_form">
+        <input type="text" id="" title="텍스트 입력" placeholder="인풋 비활성" class="temp_input" disabled/>
+    </div>
+    <div class="temp_form">
+        <input type="email" id="" title="텍스트 입력" placeholder="전화번호 입력" value="type 에 맞지 않는 값" class="temp_input"/>
+    </div>
+</div>
 </textarea>
+                                </div>
+                            </div>
+                            <div class="form_wrap">
+                                <div class="temp_form">
+                                    <input type="text" title="텍스트 입력" placeholder="인풋 텍스트" class="temp_input" />
+                                </div>
+                                <div class="temp_form">
+                                    <input type="text" title="텍스트 입력" placeholder="인풋 비활성" class="temp_input" disabled />
+                                </div>
+                                <div class="temp_form">
+                                    <input type="email" title="텍스트 입력" placeholder="전화번호 입력" value="type 에 맞지 않는 값" class="temp_input" />
                                 </div>
                             </div>
                             <i class="template_split"></i>
@@ -4005,15 +4056,317 @@ $('table.table.responsive').not($('.prettyprint').children()).each(function () {
                                 <div class="copy_box">
                                     <button class="copy html"><span><em>html</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+<div class="form_wrap">
+    <div class="temp_form">
+        <select id="" title="옵션 선택" class="temp_input">
+            <option value="">진짜 셀렉트</option>
+            <option value="">옵션1</option>
+            <option value="">옵션2</option>
+        </select>
+    </div>
+    <div class="temp_form">
+        <button type="button" title="하위 메뉴 열기" class="fake_select"><span>선택된 옵션 텍스트</span></button>
+        <ul class="fake_options">
+            <li class="fake_option selected"><button type="button" class="btn">가짜 셀렉트</button></li>
+            <li class="fake_option"><button type="button" class="btn">옵션2</button></li>
+            <li class="fake_option"><button type="button" class="btn">옵션3</button></li>
+        </ul>
+    </div>
+    <div class="temp_form">
+        <select id="" title="옵션 선택" class="temp_input" disabled>
+            <option value="">진짜 셀렉트 비활성</option>
+            <option value="">옵션1</option>
+            <option value="">옵션2</option>
+        </select>
+    </div>
+    <div class="temp_form">
+        <button type="button" title="하위 메뉴 열기" class="fake_select" disabled><span>선택된 옵션 텍스트</span></button>
+        <ul class="fake_options">
+            <li class="fake_option selected"><button type="button" class="btn">가짜 셀렉트 비활성</button></li>
+            <li class="fake_option"><button type="button" class="btn">가짜 셀렉트.disabled</button></li>
+            <li class="fake_option"><button type="button" class="btn">옵션3</button></li>
+        </ul>
+    </div>
+</div>
 </textarea>
                                 </div>
                             </div>
+                            <div class="form_wrap">
+                                <div class="temp_form">
+                                    <select title="옵션 선택" class="temp_input">
+                                        <option value="">진짜 셀렉트</option>
+                                        <option value="">옵션1</option>
+                                        <option value="">옵션2</option>
+                                    </select>
+                                </div>
+                                <div class="temp_form">
+                                    <button type="button" title="하위 메뉴 열기" class="fake_select"><span>선택된 옵션 텍스트</span></button>
+                                    <ul class="fake_options">
+                                        <li class="fake_option selected"><button type="button" class="btn">옵션1</button></li>
+                                        <li class="fake_option"><button type="button" class="btn">옵션2</button></li>
+                                        <li class="fake_option"><button type="button" class="btn">옵션3</button></li>
+                                    </ul>
+                                </div>
+                                <div class="temp_form">
+                                    <button type="button" title="하위 메뉴 열기" class="fake_select" disabled><span>비활성</span></button>
+                                    <ul class="fake_options">
+                                        <li class="fake_option selected"><button type="button" class="btn">비활성</button></li>
+                                        <li class="fake_option"><button type="button" class="btn">가짜 셀렉트.disabled</button></li>
+                                        <li class="fake_option"><button type="button" class="btn">옵션3</button></li>
+                                    </ul>
+                                </div>
+                            </div>
                             <i class="template_split"></i>
+                            <h4>인풋 라디오, 체크박스</h4>
                             <div class="button_wrap">
                                 <div class="copy_box">
                                     <button class="copy html"><span><em>html</em></span></button>
 <textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+<div class="form_wrap">
+    <div class="temp_form">
+        <input type="radio" id="" name="" class="temp_input" />
+        <label for="">라디오 버튼</label>
+    </div>
+    <div class="temp_form">
+        <input type="radio" id="" name="" class="temp_input" checked />
+        <label for="">라디오 체크</label>
+    </div>
+    <div class="temp_form">
+        <input type="radio" id="" name="" class="temp_input" disabled />
+        <label for="">라디오 비활성</label>
+    </div>
+</div>
+<div class="form_wrap">
+    <div class="temp_form">
+        <input type="checkbox" id="" name="" class="temp_input" />
+        <label for="">체크박스 버튼</label>
+    </div>
+    <div class="temp_form">
+        <input type="checkbox" id="" name="" class="temp_input" checked />
+        <label for="">체크박스 체크</label>
+    </div>
+    <div class="temp_form">
+        <input type="checkbox" id="" name="" class="temp_input" disabled />
+        <label for="">체크박스 비활성</label>
+    </div>
+</div>
 </textarea>
+                                </div>
+                            </div>
+                            <div class="form_wrap">
+                                <div class="temp_form">
+                                    <input type="radio" id="test03" class="temp_input" />
+                                    <label for="test03">라디오 버튼</label>
+                                </div>
+                                <div class="temp_form">
+                                    <input type="radio" id="test04" class="temp_input" checked />
+                                    <label for="test04">라디오 체크</label>
+                                </div>
+                                <div class="temp_form">
+                                    <input type="radio" id="test05" class="temp_input" disabled />
+                                    <label for="test05">라디오 비활성</label>
+                                </div>
+                            </div>
+                            <div class="form_wrap">
+                                <div class="temp_form">
+                                    <input type="checkbox" id="test06" class="temp_input" />
+                                    <label for="test06">체크박스 버튼</label>
+                                </div>
+                                <div class="temp_form">
+                                    <input type="checkbox" id="test07" class="temp_input" checked />
+                                    <label for="test07">체크박스 체크</label>
+                                </div>
+                                <div class="temp_form">
+                                    <input type="checkbox" id="test08" class="temp_input" disabled />
+                                    <label for="test08">체크박스 비활성</label>
+                                </div>
+                            </div>
+                            <i class="template_split"></i>
+                            <h3>프로그램 템플릿</h3>
+                            <h4>상단 검색박스</h4>
+                            <div class="button_wrap">
+                                <div class="copy_box">
+                                    <button class="copy html"><span><em>html</em></span></button>
+<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+<div class="temp_search">
+    <form name="" id="" action="">
+        <fieldset>
+            <legend>게시물 검색 영역</legend>
+            <div class="temp_form">
+                <select name="" id="" title="검색 항목 선택" class="temp_input">
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="temp_form">
+                <input type="text" id="" placeholder="검색어 입력" class="temp_input">
+                <label for="">검색어 입력</label>
+            </div>
+            <div class="temp_btn type2 medium">
+                <button type="submit" title="검색버튼" class="btn"><span>검색</span></button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+</textarea>
+                                </div>
+                                <div class="copy_box">
+                                    <button class="copy css"><span><em>css</em></span></button>
+<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+/* 검색 박스 */
+.temp_search{display:block;width:100%;margin-bottom:46px;padding:36px 30px;border-radius:15px;background-color:#f7f9fc;font-size:0;line-height:0;text-align:center;box-sizing:border-box;}
+.temp_search .temp_form{margin:0 5px;}
+.temp_search .temp_form .temp_input[type="text"]{min-width:330px;}
+.temp_search .temp_btn{margin:0 5px;}
+.temp_search .temp_btn .btn{min-width:100px;}
+@media all and (max-width:1500px){
+    .temp_search{margin-bottom:45px;padding:35px 25px;}
+    .temp_search .temp_form .temp_input[type="text"]{min-width:300px;}
+    .temp_search .temp_btn .btn{min-width:80px;}
+}
+@media all and (max-width:1000px){
+    .temp_search{margin-bottom:35px;padding:30px 20px;}
+    .temp_search .temp_form .temp_input[type="text"]{min-width:250px;}
+    .temp_search .temp_btn .btn{min-width:70px;}
+}
+@media all and (max-width:640px){
+    .temp_search{margin-bottom:30px;padding:25px 20px;}
+    .temp_search .temp_form{width:100%;margin:0;}
+    .temp_search .temp_form + .temp_form{width:calc(100% - 66px);margin-top:10px;}
+    .temp_search .temp_form .temp_input[type="text"]{min-width:auto;}
+    .temp_search .temp_btn{margin:10px 0 0 5px;}
+    .temp_search .temp_btn .btn{min-width:60px;}
+}
+</textarea>
+                                </div>
+                            </div>
+                            <div class="temp_search">
+                                <form name="" action="">
+                                    <fieldset>
+                                        <legend>게시물 검색 영역</legend>
+                                        <div class="temp_form">
+                                            <select name="" title="검색 항목 선택" class="temp_input">
+                                                <option value="">제목</option>
+                                                <option value="">내용</option>
+                                            </select>
+                                        </div>
+                                        <div class="temp_form">
+                                            <input type="text" id="" placeholder="검색어 입력" class="temp_input">
+                                            <label for="">검색어 입력</label>
+                                        </div>
+                                        <div class="temp_btn type2 medium">
+                                            <button type="submit" title="검색버튼" class="btn"><span>검색</span></button>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <i class="template_split"></i>
+                            <h4>페이지네이션</h4>
+                            <div class="button_wrap">
+                                <div class="copy_box">
+                                    <button class="copy html"><span><em>html</em></span></button>
+<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+<div class="p-pagination">
+    <div class="p-page">
+        <span class="p-page__control">
+            <a href="#" class="p-page__link prev-end"><span class="skip">처음 페이지</span></a>
+            <a href="#" class="p-page__link prev"><span class="skip">이전 10 페이지</span></a>
+            <a href="#" class="p-page__link prev-one">이전 페이지</a>
+        </span>
+        <span class="p-page__link-group">
+            <strong title="현재 1페이지" class="p-page__link active">1</strong>
+            <a href="" title="2페이지 이동" class="p-page__link">2</a>
+            <a href="" title="3페이지 이동" class="p-page__link">3</a>
+            <a href="" title="4페이지 이동" class="p-page__link">4</a>
+            <a href="" title="5페이지 이동" class="p-page__link">5</a>
+            <a href="" title="6페이지 이동" class="p-page__link">6</a>
+            <a href="" title="7페이지 이동" class="p-page__link">7</a>
+            <a href="" title="8페이지 이동" class="p-page__link">8</a>
+            <a href="" title="9페이지 이동" class="p-page__link">9</a>
+            <a href="" title="10페이지 이동" class="p-page__link">10</a>
+        </span>
+        <span class="p-page__control">
+            <a href="#" class="p-page__link next-one">다음 페이지</a>
+            <a href="#" class="p-page__link next"><span class="skip">다음 10 페이지</span></a>
+            <a href="#" class="p-page__link next-end"><span class="skip">끝 페이지</span></a>
+        </span>
+    </div>
+</div>
+</textarea>
+                                </div>
+                                <div class="copy_box">
+                                    <button class="copy css"><span><em>css</em></span></button>
+<textarea title="copy text" class="copy_text" tabindex="-1" readonly>
+/* 페이지네이션 */
+.p-pagination{display:block;width:100%;margin-top:30px;}
+.p-pagination .p-page{display:block;width:100%;font-size:0;line-height:0;text-align:center;}
+.p-pagination .p-page .p-page__control{display:inline-block;vertical-align:top;}
+.p-pagination .p-page .p-page__control .p-page__link{display:inline-block;position:relative;width:48px;height:48px;border-radius:5px;border:solid 1px #e4e5e9;background-color:#fff;vertical-align:top;box-sizing:border-box;}
+.p-pagination .p-page .p-page__control .p-page__link + .p-page__link{margin-left:10px;}
+.p-pagination .p-page .p-page__control .p-page__link:before{display:block;position:absolute;left:calc(50% - 10px);top:calc(50% - 10px);width:20px;height:20px;background-image:url(../images/program/pagination_icon_sprite.png);background-size:100%;content:'';}
+.p-pagination .p-page .p-page__control .p-page__link.prev{display:none;}
+.p-pagination .p-page .p-page__control .p-page__link.next{display:none;}
+.p-pagination .p-page .p-page__control .p-page__link.prev-end:before{background-position-y:0;}
+.p-pagination .p-page .p-page__control .p-page__link.prev:before{background-position-y:-200%;}
+.p-pagination .p-page .p-page__control .p-page__link.prev-one:before{background-position-y:-100%;}
+.p-pagination .p-page .p-page__control .p-page__link.next-one:before{background-position-y:-100%;transform:rotate(180deg);}
+.p-pagination .p-page .p-page__control .p-page__link.next:before{background-position-y:-200%;transform:rotate(180deg);}
+.p-pagination .p-page .p-page__control .p-page__link.next-end:before{background-position-y:0;transform:rotate(180deg);}
+.p-pagination .p-page .p-page__link-group{display:inline-block;margin:0 35px;vertical-align:top;}
+.p-pagination .p-page .p-page__link-group .p-page__link{display:inline-block;position:relative;width:48px;height:48px;font-weight:400;font-size:14px;line-height:48px;color:#626262;text-align:center;vertical-align:top;}
+.p-pagination .p-page .p-page__link-group .p-page__link + .p-page__link{margin-left:5px;}
+.p-pagination .p-page .p-page__link-group .p-page__link:before{display:block;opacity:0;position:absolute;left:calc(50% - 7px);bottom:9px;width:14px;height:2px;background-color:#000;transition-property:opacity;transition-duration:0.3s;content:'';}
+.p-pagination .p-page .p-page__link-group .p-page__link.active{font-weight:600;color:#141414;}
+.p-pagination .p-page .p-page__link-group .p-page__link.active:hover{text-decoration:none;}
+.p-pagination .p-page .p-page__link-group .p-page__link.active:before{opacity:1;}
+@media all and (max-width:1500px){
+    .p-pagination .p-page .p-page__control .p-page__link{width:45px;height:45px;}
+    .p-pagination .p-page .p-page__control .p-page__link + .p-page__link{margin-left:5px;}
+    .p-pagination .p-page .p-page__link-group{margin:0 20px;}
+    .p-pagination .p-page .p-page__link-group .p-page__link{width:45px;height:45px;line-height:45px;}
+    .p-pagination .p-page .p-page__link-group .p-page__link + .p-page__link{margin-left:0;}
+}
+@media all and (max-width:1000px){
+    .p-pagination{margin-top:25px;}
+    .p-pagination .p-page .p-page__control .p-page__link{width:40px;height:40px;}
+    .p-pagination .p-page .p-page__control .p-page__link:before{left:calc(50% - 9px);top:calc(50% - 9px);width:18px;height:18px;}
+    .p-pagination .p-page .p-page__link-group{margin:0 10px;}
+    .p-pagination .p-page .p-page__link-group .p-page__link{width:40px;height:40px;line-height:40px;}
+}
+@media all and (max-width:640px){
+    .p-pagination{margin-top:20px;}
+    .p-pagination .p-page .p-page__control{width:49%;margin-right:1%;}
+    .p-pagination .p-page .p-page__control:last-child{margin-right:0;}
+    .p-pagination .p-page .p-page__control .p-page__link{width:calc((100% - 5px) / 2);}
+    .p-pagination .p-page .p-page__link-group{display:none;}
+}
+</textarea>
+                                </div>
+                            </div>
+                            <div class="p-pagination">
+                                <div class="p-page">
+                                    <span class="p-page__control">
+                                        <a href="#" class="p-page__link prev-end"><span class="skip">처음 페이지</span></a>
+                                        <a href="#" class="p-page__link prev"><span class="skip">이전 10 페이지</span></a>
+                                        <a href="#" class="p-page__link prev-one">이전 페이지</a>
+                                    </span>
+                                    <span class="p-page__link-group">
+                                        <strong title="현재 1페이지" class="p-page__link active">1</strong>
+                                        <a href="" title="2페이지 이동" class="p-page__link">2</a>
+                                        <a href="" title="3페이지 이동" class="p-page__link">3</a>
+                                        <a href="" title="4페이지 이동" class="p-page__link">4</a>
+                                        <a href="" title="5페이지 이동" class="p-page__link">5</a>
+                                        <a href="" title="6페이지 이동" class="p-page__link">6</a>
+                                        <a href="" title="7페이지 이동" class="p-page__link">7</a>
+                                        <a href="" title="8페이지 이동" class="p-page__link">8</a>
+                                        <a href="" title="9페이지 이동" class="p-page__link">9</a>
+                                        <a href="" title="10페이지 이동" class="p-page__link">10</a>
+                                    </span>
+                                    <span class="p-page__control">
+                                        <a href="#" class="p-page__link next-one">다음 페이지</a>
+                                        <a href="#" class="p-page__link next"><span class="skip">다음 10 페이지</span></a>
+                                        <a href="#" class="p-page__link next-end"><span class="skip">끝 페이지</span></a>
+                                    </span>
                                 </div>
                             </div>
                         </div>

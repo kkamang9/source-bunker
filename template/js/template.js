@@ -11,24 +11,6 @@
         });
         // copy button script - E
         
-        // 반응형 테이블
-        $('table.table.responsive').not($('.prettyprint').children()).each(function () {
-            var RowSpanExist = $(this).find('td, th').is('[rowspan]'),
-                TheadExist = $(this).find('thead').length;
-            if ((RowSpanExist == false) && (TheadExist != 0)) {//rowspan이 없을 경우만 실행 (rowspan이 있으면 지원불가)
-                $(this).children('tbody').children('tr').find('th, td').each(function () {
-                    var ThisIndex = $(this).index(),
-                        TheadText = $(this).parents('tbody').siblings('thead').find('th').eq(ThisIndex).text();
-                    $(this).attr('data-content', TheadText);
-                });
-                $(this).children('tfoot').children('tr').find('th, td').each(function () {
-                    var ThisIndex = $(this).index(),
-                        TheadText = $(this).parents('tfoot').siblings('thead').find('th').eq(ThisIndex).text();
-                    $(this).attr('data-content', TheadText);
-                });
-            }
-        });
-        
         // tab menu - S
         $('.tab_wrap').each(function(){
             var $this = $(this),
@@ -77,6 +59,53 @@
             });
         });
         // tab menu - E
+        
+        // 반응형 테이블
+        $('table.table.responsive').not($('.prettyprint').children()).each(function () {
+            var RowSpanExist = $(this).find('td, th').is('[rowspan]'),
+                TheadExist = $(this).find('thead').length;
+            if ((RowSpanExist == false) && (TheadExist != 0)) {//rowspan이 없을 경우만 실행 (rowspan이 있으면 지원불가)
+                $(this).children('tbody').children('tr').find('th, td').each(function () {
+                    var ThisIndex = $(this).index(),
+                        TheadText = $(this).parents('tbody').siblings('thead').find('th').eq(ThisIndex).text();
+                    $(this).attr('data-content', TheadText);
+                });
+                $(this).children('tfoot').children('tr').find('th, td').each(function () {
+                    var ThisIndex = $(this).index(),
+                        TheadText = $(this).parents('tfoot').siblings('thead').find('th').eq(ThisIndex).text();
+                    $(this).attr('data-content', TheadText);
+                });
+            }
+        });
+        
+        // 가짜 셀렉트 박스
+        $('.temp_form .fake_select').each(function(){
+            var $this = $(this),
+                $fakeOptions = $this.next('.fake_options'),
+                $fakeOption = $fakeOptions.find('.fake_option'),
+                $fakeOptionBtn = $fakeOption.find('.btn');
+            $this.outerWidth($fakeOptions.outerWidth());
+            if($fakeOption.is('.selected')){
+                var $fakeSelected = $fakeOptions.find('.fake_option.selected'),
+                    $selectedText = $fakeSelected.find('.btn').text();
+                $this.find('span').text($selectedText);
+            }
+            $this.removeClass('active').attr('title','하위 메뉴 열기').next().stop().slideUp();
+            $this.not(':disabled').on('click',function(){
+                if($this.is('.active') === true){
+                    $this.removeClass('active').attr('title','하위 메뉴 열기').next().stop().slideUp();
+                }else if($this.is('.active') === false){
+                    $this.addClass('active').attr('title','하위 메뉴 닫기').next().stop().slideDown();
+                }
+            });
+            $fakeOptionBtn.on('click',function(){
+                var $thisBtn = $(this),
+                    $selectedText = $thisBtn.text();
+                $thisBtn.parent().addClass('selected').siblings().removeClass('selected');
+                $this.removeClass('active').attr('title','하위 메뉴 열기').next().stop().slideUp();
+                $this.find('span').text($selectedText);
+            });
+        });
         
         // slick slide - S
         // slick type full
