@@ -46,5 +46,29 @@
             $("#text").html("요청이 완료되었습니다!");
         });
         
+        // url 인식 ajax
+        // url replace
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        // menu type
+        var menuType = getParameterByName('type');
+        // sub contents
+        if(menuType){
+            $.ajax({
+                url : '/rere/sub/'+menuType+'.html',
+                async: false,
+                success : function (data) {
+                    $('#sub_content').addClass('menu_'+menuType).prepend(data);
+                },
+                error:function(request, status, error){
+                    console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                }
+            });
+        }
+        
     });
 })(jQuery);
